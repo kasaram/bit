@@ -24,6 +24,6 @@ RewriteRule ^(.*)$ index.php
 
 
 # Переадресовываем несуществующие адреса на главную страницу
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.*) ./?%{QUERY_STRING}
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteRule ^(.*) ./?%{QUERY_STRING}
