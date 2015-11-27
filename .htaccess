@@ -1,6 +1,6 @@
 AddDefaultCharset utf-8
 
-# Запрещаем просмотр директорий на прямую, запрещаем SSI 
+# Запрещаем просмотр директорий на прямую, запрещаем SSI
 Options -Indexes
 Options -Includes
 Options +FollowSymlinks
@@ -23,7 +23,6 @@ RewriteRule ^(.*)$ index.php
 # RewriteRule ^(.*) (/)$ $1 [R=301, L]
 
 # Переадресовываем несуществующие адреса на главную страницу
-# RewriteCond %{REQUEST_FILENAME} !-d
-# RewriteCond %{REQUEST_FILENAME} !-f
-# RewriteRule ^(.*) ./?%{QUERY_STRING}
-
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*) ./?%{QUERY_STRING}
