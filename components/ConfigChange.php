@@ -1,0 +1,65 @@
+<?php
+
+defined('BIT') or die;
+
+class ConfigChange
+{
+/**
+ *  @brief Метод для получения конфигураций в виде массива
+ *
+ *	@param string $configClass Принимает строку названия класса конфигураций
+ *  @return array $arrCount Вернет массив конфигураций
+ */
+public static function getConfig($configClass = 'Config')
+{
+	$ref = new ReflectionClass($configClass);
+	$arrConst = $ref->getConstants();
+	return $arrConst;
+}
+
+/**
+ *  @brief Устанавливаем новые конфигурации
+ *
+ *  @param array $arrConfig Массив параметров конфигураций, которые нужно записать
+ *  @param array $arrConst Массив параметров конфигураций, полученных из файла
+ *  @return bool Вернет булево значение, в зависимости от того будут ли установленны новые конфигурации
+ */
+public static function setConfig($arrConfig)
+{
+	if(is_array($arrConfig)){
+		$arrConst = self::getConfig();
+		foreach($arrConfig as $k=>$v){
+			$arrConst[$k] = $v;
+		}
+	}else return false;
+	return self::writeConfig($arrConst);
+}
+
+/**
+ *  @brief Записывает новые конфигурации в файле
+ *
+ *  @param array $arrConst Массив новых значений для конфигурационного файла
+ *  @return bool Вернет истину если удалось произвести запись в файл конфигураций
+ */
+private static function writeConfig($arrConst)
+{
+	$config = '<?php
+	class Config
+	{
+		';
+	foreach($arrConst as $k=>$v){
+		$config .= 'const '.$k.' = "'.$v.'";
+		';
+	}
+	$config .= '
+	}';
+	try{
+		if(!file_put_contents('config/config.php', $config)){
+			throw new Exception('Возникла ошибка при попытке изменения файла конфигураций', 3);
+		} else return true;
+	}catch(Exception $e){
+		$log = Logger::getLog();
+		$log->writeLog($e);
+	}
+}
+}

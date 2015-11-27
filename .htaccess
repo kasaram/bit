@@ -1,0 +1,29 @@
+AddDefaultCharset utf-8
+
+# Запрещаем просмотр директорий на прямую, запрещаем SSI 
+Options -Indexes
+Options -Includes
+Options +FollowSymlinks
+
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php
+
+# Убираем www в строке запроса
+# RewriteCond %{HTTP_HOST} ^www.bit.loc& [NC]
+# RewtiteRule ^(.*)$ http://bit.loc/$1 [R=301, L]
+
+# Убираем лишний слеш из строки запроса
+# RewriteBase /
+# RewriteCond %{HTTP_HOST} (.*)
+# RewriteCond %{REQUEST_URI} /$ [NC]
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^(.*) (/)$ $1 [R=301, L]
+
+# Переадресовываем несуществующие адреса на главную страницу
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteRule ^(.*) ./?%{QUERY_STRING}
+
