@@ -1,2 +1,10 @@
 26/11/15 20:16:31||Код: 42S22||Сообщение: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'DESC' in 'order clause'||Линия: 75||Файл: D:\OpenServer\OpenServer\domains\bit.loc\components\DB.php
 26/11/15 20:21:58||Код: 42S22||Сообщение: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'DESC' in 'order clause'||Линия: 75||Файл: D:\OpenServer\OpenServer\domains\bit.loc\components\DB.php
+28/11/15 11:53:33||Код: HY093||Сообщение: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens||Линия: 75||Файл: D:\OpenServer\OpenServer\domains\bit.loc\components\DB.php
+28/11/15 11:54:02||Код: HY093||Сообщение: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens||Линия: 75||Файл: D:\OpenServer\OpenServer\domains\bit.loc\components\DB.php
+28/11/15 11:55:04||Код: HY093||Сообщение: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens||Линия: 75||Файл: D:\OpenServer\OpenServer\domains\bit.loc\components\DB.php
+28/11/15 11:55:13||Код: HY093||Сообщение: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens||Линия: 75||Файл: D:\OpenServer\OpenServer\domains\bit.loc\components\DB.php
+28/11/15 11:56:34||Код: HY093||Сообщение: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens||Линия: 75||Файл: D:\OpenServer\OpenServer\domains\bit.loc\components\DB.php
+28/11/15 11:57:19||Код: HY093||Сообщение: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens||Линия: 75||Файл: D:\OpenServer\OpenServer\domains\bit.loc\components\DB.php
+28/11/15 11:57:52||Код: HY093||Сообщение: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens||Линия: 75||Файл: D:\OpenServer\OpenServer\domains\bit.loc\components\DB.php
+28/11/15 11:58:45||Код: HY093||Сообщение: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens||Линия: 75||Файл: D:\OpenServer\OpenServer\domains\bit.loc\components\DB.php

@@ -15,6 +15,12 @@ require_once ROOT.'/'.Config::VIEW.'layouts/header.php';
   float: right;
   margin-right: 700px;
 }
+.area{
+  height: 100px;
+}
+.sub{
+	margin-left: 565px;
+}
 </style>
 
 <a href="<?=Config::ADDRESS?>admin/users">Пользователи</a><br/><br/>
