@@ -5,12 +5,12 @@ defined('BIT') or die;
 class DB
 {
 	/*
-	*		@var null|object Свойство для создания объекта класса DB
+	* @var null|object Свойство для создания объекта класса DB
 	*/
 	private static $db = null;
 
 	/*
-	*		@var object Свойство для создания объекта класса PDO
+	* @var object Свойство для создания объекта класса PDO
 	*/
 	private $pdo;
 

@@ -2,7 +2,7 @@
 class Router
 {
 	/*
-	*		@var array Массив, в котором хранятся маршруты
+	* @var array Массив, в котором хранятся маршруты
 	*/
 	private $routes;
 
