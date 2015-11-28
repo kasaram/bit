@@ -4,7 +4,7 @@ defined('BIT') or die;
 class Contact
 {
 	/**
-	 *  @brief Метод отправки писем
+	 *   Метод отправки писем
 	 *
 	 *  @return bool Вернет true  если письмо отправиться или  false если не отправиться
 	 */
