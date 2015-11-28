@@ -26,6 +26,7 @@ require_once ROOT.'/'.Config::VIEW.'layouts/header.php';
 <a href="<?=Config::ADDRESS?>admin/users">Пользователи</a><br/><br/>
 <a href="<?=Config::ADDRESS?>admin/banners">Баннеры</a><br/><br/>
 <a href="<?=Config::ADDRESS?>admin/reclama">Реклама</a><br/><br/>
+<a href="<?=Config::ADDRESS?>admin/video">Видео</a><br/><br/>
 <a href="<?=Config::ADDRESS?>admin/game">Игра</a><br/><br/>
 <a href="<?=Config::ADDRESS?>admin/design">Дизайн</a><br/><br/>
 <a href="<?=Config::ADDRESS?>admin/service">Настройки</a><br/><br/>

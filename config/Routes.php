@@ -1,5 +1,13 @@
 <?php
 return [
+	'admin/video/delete/([a-z0-9]+)' =>'adminVideo/delete/$1', //actionDelete в AdminVideoController
+	'admin/video/update/([a-z0-9]+)' =>'adminVideo/update/$1', //actionUpdate в AdminVideoController
+	'admin/video/create' =>'adminVideo/create', //actionCreate в AdminVideoController
+	'admin/video' =>'adminVideo/index', //actionIndex в AdminVideoController
+	'admin/reclama/delete/([a-z0-9]+)' =>'adminReclama/delete/$1', //actionDelete в AdminReclamaController
+	'admin/reclama/update/([a-z0-9]+)' =>'adminReclama/update/$1', //actionUpdate в AdminReclamaController
+	'admin/reclama/create' =>'adminReclama/create', //actionCreate в AdminReclamaController
+	'admin/reclama' =>'adminReclama/index', //actionIndex в AdminReclamaController
 	'admin/banners/delete/([a-z0-9]+)' =>'adminBanners/delete/$1', //actionDelete в AdminBannersController
 	'admin/banners/update/([a-z0-9]+)' =>'adminBanners/update/$1', //actionUpdate в AdminBannersController
 	'admin/banners/create' =>'adminBanners/create', //actionCreate в AdminBannersController

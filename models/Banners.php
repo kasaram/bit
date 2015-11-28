@@ -6,7 +6,7 @@ class Banners
 	/**
 	 *   Метод для получения данных из таблицы banners
 	 *
-	 * 	@param string $order Принимает строку названия типа сортировки
+	 * 	@param string|array $order Принимает строку или массив названия типа сортировки
 	 *  @return array Вернет массив случайных значений банеров
 	 */
 	public static function getBannersOnSite($order)
@@ -19,7 +19,7 @@ class Banners
 	/**
 	 *   Метод для получения данных из таблицы banners
 	 *
-	 * 	@param string $order Принимает строку названия типа сортировки
+	 * 	@param string|array $order Принимает строку или массив названия типа сортировки
 	 *  @return array Вернет массив случайных значений банеров
 	 */
 	public static function getBannersOnAdmin($order)
@@ -33,7 +33,7 @@ class Banners
 	 * Статический метод для добавления баннера 
 	 * @param array|string $data Принимает поле или массив полей, значения которых нужно вставить в БД
 	 * @param array|string $params Принимает начение или массив значений, которые нужно вставить в БД
-	 * @return bool Вернет белево значение взависимости от того удалось ли вставить данные в БД
+	 * @return bool Вернет булево значение взависимости от того удалось ли вставить данные в БД
 	 */
 	public static function addBanner($data, $params)
 	{

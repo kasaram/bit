@@ -10,8 +10,8 @@ class BonusController
 	public function actionIndex()
 	{
 		$listBanners = Banners::getBannersOnSite('rand');
-		$reclameList = Bonus::getReclame();
-		$videoList = Bonus::getVideo();
+		$reclameList = Reclama::getReclamaOnSite('rand');
+		$videoList = Video::getVideoOnSite('rand');
 
 		require_once ROOT.'/'.Config::VIEW.'bonus/index.php';
 		return true;
