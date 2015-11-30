@@ -4,7 +4,7 @@
 		const SITE_NAME = "Биткоин проект";
 		const ADDRESS = "http://bit.loc/";
 		const ADM_EMAIL = "echmaster@mail.ru";
-		const SECRET = "AWSDEF7";
+		const SECRET = "master";
 		const MODEL = "models/";
 		const VIEW = "views/";
 		const CONTROLLER = "controllers/";
@@ -42,5 +42,8 @@
 		const AMOUNT_BONUS_2 = "1500";
 		const NUM_VIDEO = "4";
 		const TIME_VIDEO = "60";
+		const BANNER_TOP = "&lt;script&gt;&lt;br/&gt;&lt;/script&gt;";
+		const BANNER_LEFT = "Код для баннера слева";
+		const BANNER_RIGHT = "Код для баннера справа";
 		
 	}

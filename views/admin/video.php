@@ -39,18 +39,21 @@ require_once ROOT.'/'.Config::VIEW.'layouts/admin.php';
     <th>Опубликовано</th>
     <th>Удаление</th>
   </tr>
-<?php foreach ($listVideo as $item) { ?>
-  <tr>
-    <td><?=$item['title']?></td>
-    <td><?=htmlspecialchars($item['descr'])?></td>
-    <td><?=Format::adminDate($item['pubTime'])?></td>
-    <td>
-      <form action="<?=Config::ADDRESS?>admin/video/update/<?=$item['id'];?>" method="post">
-        <?php $checked = !empty($item['publish']) ? 'checked' : '';  ?>
-        <input type="checkbox" onclick="submit();" name="publish"  <?=$checked?>>
-      </form>
-    </td>
-    <td><a href="<?=Config::ADDRESS?>admin/video/delete/<?=$item['id']?>">Удалить</a></td>
-  </tr>
-<?php } ?>
+<?php 
+if (isset($listVideo)) {
+  foreach ($listVideo as $item) { ?>
+    <tr>
+      <td><?=$item['title']?></td>
+      <td><?=htmlspecialchars($item['descr'])?></td>
+      <td><?=Format::adminDate($item['pubTime'])?></td>
+      <td>
+        <form action="<?=Config::ADDRESS?>admin/video/update/<?=$item['id'];?>" method="post">
+          <?php $checked = !empty($item['publish']) ? 'checked' : '';  ?>
+          <input type="checkbox" onclick="submit();" name="publish"  <?=$checked?>>
+        </form>
+      </td>
+      <td><a href="<?=Config::ADDRESS?>admin/video/delete/<?=$item['id']?>">Удалить</a></td>
+    </tr>
+<?php } 
+} ?>
 </table>

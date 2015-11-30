@@ -47,7 +47,11 @@ class Router
 				$actionName = 'action'.ucfirst(array_shift($segments));
 
 				$parameters = $segments;
-
+				//проверка на существование контроллера и его экшена
+				if (!class_exists($controllerName) || !method_exists(new $controllerName(), $actionName)) {
+					$controllerName = 'SiteController';
+					$actionName = 'actionIndex';
+				}
 				//Создание объекта контроллера и вызов его экшена
 				$controllerObject = new $controllerName();
 

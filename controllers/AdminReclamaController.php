@@ -2,11 +2,12 @@
 
 defined('BIT') or die;
 
-class AdminReclamaController
+class AdminReclamaController extends AdminBase
 {
 	
 	public function actionIndex()
 	{
+		self::checkAdmin();
 		$listReclama = Reclama::getReclamaOnAdmin(['DESC', 'id']);
 		require_once ROOT.'/'.Config::VIEW.'admin/reclama.php';
 		return true;
@@ -14,6 +15,7 @@ class AdminReclamaController
 
 	public function actionCreate()
 	{
+		self::checkAdmin();
 		if(isset($_POST['submit'])) {
 			$title = Validate::cleanStr($_POST['title']);
 			$descr = htmlspecialchars($_POST['descr']);
@@ -25,6 +27,7 @@ class AdminReclamaController
 
 	public function actionUpdate($id)
 	{
+		self::checkAdmin();
 		if (isset($id)) {
 			$publish = isset($_POST['publish']) ? '1' : '0';
 			$result = Reclama::updateStatusReclama($id, $publish);
@@ -35,6 +38,7 @@ class AdminReclamaController
 
 	public function actionDelete($id)
 	{
+		self::checkAdmin();
 		if(isset($id)) {
 			$result = Reclama::removeReclama($id);
 			$res = isset($result) ? 'sucDel' : 'failDel';

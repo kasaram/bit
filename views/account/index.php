@@ -41,9 +41,9 @@ require_once ROOT.'/'.Config::VIEW.'layouts/header.php';
     <form action="<?=Config::ADDRESS?>account/withdraw" method="post">
       Auto withdraw ENABLED:
       <?php
-        $checked = (isset($_SESSION['withdraw']) && $_SESSION['withdraw'] == 'es') ? 'checked' : '';
+        $checked = (!empty($_SESSION['withdraw'])) ? 'checked' : '';
       ?>
-      <input type="checkbox" onclick="submit();" name="withdraw" value="es" <?=$checked?>>
+      <input type="checkbox" onclick="submit();" name="withdraw" <?=$checked?>>
     </form>
   </p>
   <p>

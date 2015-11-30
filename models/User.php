@@ -5,9 +5,9 @@ class User
 {
 
 	/**
-	 *   Статический метод для получения данных из таблицы users
+	 *   Статический метод для получения данных из таблицы пльзователей
 	 *
-	 *	@param	string|array $data Указываем строку или массив полей, данные для которых необходимо извлеч
+	 *	@param	string|array $data Указываем строку или массив полей, данные для которых необходимо извлечь
 	 *	@param	string|int $userId Указываем id пользователя, данные которого нужно получить
 	 *  @return array Вернет массив данных указанного юзера
 	 */
@@ -16,6 +16,13 @@ class User
 		$db = DB::getDB();
 		$userData = $db->select($data, 'users', ['id'=>'='], null, null, $userId);
 		return $userData[0];
+	}
+
+	public static function getUsersAll()
+	{
+		$db = DB::getDB();
+		$listUsers = $db->select(['id', 'bitcoin', 'balance', 'lastVisit', 'regDate'], 'users', [['withdraw'=>'=', 'balance'=>'>'],['AND']], ['DESC', 'balance'], null, ['1', Config::SUM_AMOUNT]);
+		return $listUsers;
 	}
 
 	/**
@@ -48,7 +55,7 @@ class User
 	}
 
 	/**
- 	 *  Статический метод для получения id юзера из БД users
+ 	 *  Статический метод для получения id юзера из БД пользователей
  	 *
  	 * @param string $bitcoin Принимает строку биткоина
  	 * @return array|bool Вернет массив содержащий id юзера или ложь

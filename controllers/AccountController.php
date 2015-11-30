@@ -33,7 +33,7 @@ class AccountController
 	*/
 	public function actionWithdraw()
 	{
-		$with = isset($_POST['withdraw']) ? $_POST['withdraw'] : 'no';
+		$with = isset($_POST['withdraw']) ? '1' : '0';
 		Account::changeWithdraw($with, $_SESSION['id']);
 		header('Location:'.Config::ADDRESS.'account');
 	}

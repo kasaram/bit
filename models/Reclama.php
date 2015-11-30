@@ -12,7 +12,7 @@ class Reclama
 	public static function getReclamaOnSite($order)
 	{
 		$db = DB::getDB();
-		$reclamaData = $db->select(['id','title','descr'], 'reclama', ['publish'=>'='], $order, Config::NUM_BANNERS, 1);
+		$reclamaData = $db->select(['id','title','descr'], 'reclama', ['publish'=>'='], $order, Config::NUM_RECLAME, 1);
 		return $reclamaData;
 	}
 
@@ -25,7 +25,7 @@ class Reclama
 	public static function getReclamaOnAdmin($order)
 	{
 		$db = DB::getDB();
-		$reclamaData = $db->select(['id','title','descr', 'pubTime', 'publish'], 'reclama', null, $order, Config::NUM_BANNERS, 1);
+		$reclamaData = $db->select(['id','title','descr', 'pubTime', 'publish'], 'reclama', null, $order, null, 1);
 		return $reclamaData;
 	}
 

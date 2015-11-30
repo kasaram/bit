@@ -12,7 +12,7 @@ class Video
 	public static function getVideoOnSite($order)
 	{
 		$db = DB::getDB();
-		$videoList = $db->select(['id','title','descr'], 'video', ['publish'=>'='], $order, Config::NUM_BANNERS, 1);
+		$videoList = $db->select(['id','title','descr'], 'video', ['publish'=>'='], $order, Config::NUM_VIDEO, 1);
 		return $videoList;
 	}
 
@@ -25,7 +25,7 @@ class Video
 	public static function getVideoOnAdmin($order)
 	{
 		$db = DB::getDB();
-		$videoList = $db->select(['id','title','descr', 'pubTime', 'publish'], 'video', null, $order, Config::NUM_BANNERS, 1);
+		$videoList = $db->select(['id','title','descr', 'pubTime', 'publish'], 'video', null, $order, null, 1);
 		return $videoList;
 	}
 

@@ -1,5 +1,10 @@
 <?php
 return [
+	'page' => 'admin/page', //actionPage в AdminController
+	'admin/logout' => 'admin/logout', //actionLogout в AdminController
+	'admin/login' => 'admin/login', //actionLogin в AdminController
+	'admin/users/update/([a-z0-9]+)' =>'adminUsers/update/$1', //actionUpdate в AdminUsersController
+	'admin/users' =>'adminUsers/index', //actionIndex в AdminUsersController
 	'admin/video/delete/([a-z0-9]+)' =>'adminVideo/delete/$1', //actionDelete в AdminVideoController
 	'admin/video/update/([a-z0-9]+)' =>'adminVideo/update/$1', //actionUpdate в AdminVideoController
 	'admin/video/create' =>'adminVideo/create', //actionCreate в AdminVideoController
@@ -11,6 +16,7 @@ return [
 	'admin/banners/delete/([a-z0-9]+)' =>'adminBanners/delete/$1', //actionDelete в AdminBannersController
 	'admin/banners/update/([a-z0-9]+)' =>'adminBanners/update/$1', //actionUpdate в AdminBannersController
 	'admin/banners/create' =>'adminBanners/create', //actionCreate в AdminBannersController
+	'admin/banners/add' =>'adminBanners/add', //actionAdd в AdminBannersController
 	'admin/banners' =>'adminBanners/index', //actionIndex в AdminBannersController
 	'admin/service' =>'admin/service', //actionService в AdminController
 	'admin/design' =>'admin/design', //actionDesign в AdminController

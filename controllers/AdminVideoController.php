@@ -2,11 +2,12 @@
 
 defined('BIT') or die;
 
-class AdminVideoController
+class AdminVideoController extends AdminBase
 {
 	
 	public function actionIndex()
 	{
+		self::checkAdmin();
 		$listVideo = Video::getVideoOnAdmin(['DESC', 'id']);
 		require_once ROOT.'/'.Config::VIEW.'admin/video.php';
 		return true;
@@ -14,6 +15,7 @@ class AdminVideoController
 
 	public function actionCreate()
 	{
+		self::checkAdmin();
 		if(isset($_POST['submit'])) {
 			$title = Validate::cleanStr($_POST['title']);
 			$descr = htmlspecialchars($_POST['descr']);
@@ -25,6 +27,7 @@ class AdminVideoController
 
 	public function actionUpdate($id)
 	{
+		self::checkAdmin();
 		if (isset($id)) {
 			$publish = isset($_POST['publish']) ? '1' : '0';
 			$result = Video::updateStatusVideo($id, $publish);
@@ -35,6 +38,7 @@ class AdminVideoController
 
 	public function actionDelete($id)
 	{
+		self::checkAdmin();
 		if(isset($id)) {
 			$result = Video::removeVideo($id);
 			$res = isset($result) ? 'sucDel' : 'failDel';

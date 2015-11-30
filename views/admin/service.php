@@ -1,6 +1,8 @@
 <?php
 defined('BIT') or die;
 require_once ROOT.'/'.Config::VIEW.'layouts/admin.php';
+
+require_once ROOT.'/config/AdminConfig.php';
 ?>
 
 <p style = "color:#1d4bee;">Здесь будут выводиться общие настройки сайта</p>
@@ -12,7 +14,7 @@ require_once ROOT.'/'.Config::VIEW.'layouts/admin.php';
   <p style="color:#d21212;">Произошла ошибка, данные не удалось изменить!</p>
 <?php } ?>
 
-<form action="service" method="post">
+<form action="<?=Config::ADDRESS?>admin/service" method="post">
   <p>
     Наименование сайта:
     <input class="field "type="text" name="site_name" placeholder="<?=Config::SITE_NAME?>">
@@ -25,6 +27,12 @@ require_once ROOT.'/'.Config::VIEW.'layouts/admin.php';
     E-mail администратора:
     <input class="field "type="text" name="adm_email" placeholder="<?=Config::ADM_EMAIL?>">
   </p>
+  <p>
+    Слово в конце URL-адреса для входа в админ панель:
+    <input class="field "type="text" name="secret" placeholder="<?=Config::SECRET?>">
+  </p>
+  <br/>
+  <hr/>
   <br/>
   <p>
     Наименование валюты:
@@ -53,5 +61,20 @@ require_once ROOT.'/'.Config::VIEW.'layouts/admin.php';
   <p>
     <input type="submit" name="default" value="По умолчанию">
     <input type="submit" name="save" value="Сохранить">
+  </p>
+</form>
+<hr/>
+<h4>Настройки администратора</h4>
+<form action="<?=Config::ADDRESS?>admin/service" method="post">
+  <p>
+    Логин администратора:
+    <input class="field" type="text" name="adm_log" placeholder="<?=AdminConfig::ADM_LOG?>">
+  </p>
+  <p>
+    Пароль администратора:
+    <input class="field" type="text" name="adm_pass" placeholder="<?=AdminConfig::ADM_PASS?>">
+  </p>
+  <p>
+    <input type="submit" name="saveAdmin" value="Сохранить">
   </p>
 </form>

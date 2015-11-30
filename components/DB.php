@@ -194,17 +194,17 @@ class DB
 	/**
  	 *  Закртытый метод для получения отформатированного предиката where
  	 *
- 	 * @param array $where Принимает одномерный или двумерный массив для формирования предиката ([['id'=>'='],['AND', 'OR']])
+ 	 * @param array $where Принимает одномерный или двумерный массив для формирования предиката ([['id'=>'=','title'=>'='],['AND', 'OR']])
  	 * @return string Вернет отформатированную строку предиката
 	*/
 	private function getWhere($where)
 	{
 		$strWhere = ' WHERE ';
 		//если не двумерный массив, то возвращаем его в том виде, в котором пришел
-		$where = (count($where) > 1 && (count($where[0]) > count($where[1]))) ? $where[0] : $where;
+		$param = (count($where) > 1 && (count($where[0]) > count($where[1]))) ? $where[0] : $where;
 		$i = 0;
-		if(is_array($where)) {
-			foreach($where as $k=>$v) {
+		if(is_array($param)) {
+			foreach($param as $k=>$v) {
 				$condition = isset($where[1][$i]) ? $where[1][$i] : ' ';
 				$strWhere .= '`'.$k.'`'.' '.$v.' ? '.$condition;
 				$i++;

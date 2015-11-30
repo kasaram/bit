@@ -21,30 +21,33 @@ public static function getConfig($configClass = 'Config')
  *   Устанавливаем новые конфигурации
  *
  *  @param array $arrConfig Массив параметров конфигураций, которые нужно записать
- *  @param array $arrConst Массив параметров конфигураций, полученных из файла
+ *  @param string $configClass Наименование класса конфигураций
+ *  @param string $path Путь до файла конфигураций, который нужно переписать
  *  @return bool Вернет булево значение, в зависимости от того будут ли установленны новые конфигурации
  */
-public static function setConfig($arrConfig)
+public static function setConfig($arrConfig, $configClass = 'Config', $path = 'config/config.php')
 {
 	if(is_array($arrConfig)){
-		$arrConst = self::getConfig();
+		$arrConst = self::getConfig($configClass);
 		foreach($arrConfig as $k=>$v){
 			$arrConst[$k] = $v;
 		}
 	}else return false;
-	return self::writeConfig($arrConst);
+	return self::writeConfig($arrConst, $configClass, $path);
 }
 
 /**
  *   Записывает новые конфигурации в файле
  *
  *  @param array $arrConst Массив новых значений для конфигурационного файла
+ *  @param string $configClass Наименование класса конфигураций
+ *  @param string $path Путь до файла конфигураций, который нужно переписать
  *  @return bool Вернет истину если удалось произвести запись в файл конфигураций
  */
-private static function writeConfig($arrConst)
+private static function writeConfig($arrConst, $configClass, $path)
 {
 	$config = '<?php
-	class Config
+	class '.$configClass.'
 	{
 		';
 	foreach($arrConst as $k=>$v){
@@ -54,7 +57,7 @@ private static function writeConfig($arrConst)
 	$config .= '
 	}';
 	try{
-		if(!file_put_contents('config/config.php', $config)){
+		if(!file_put_contents($path, $config)){
 			throw new Exception('Возникла ошибка при попытке изменения файла конфигураций', 3);
 		} else return true;
 	}catch(Exception $e){

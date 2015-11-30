@@ -39,7 +39,9 @@ require_once ROOT.'/'.Config::VIEW.'layouts/admin.php';
     <th>Опубликовано</th>
     <th>Удаление</th>
   </tr>
-<?php foreach ($listReclama as $item) { ?>
+<?php 
+if (isset($listReclama)) {
+  foreach ($listReclama as $item) { ?>
   <tr>
     <td><?=$item['title']?></td>
     <td><?=htmlspecialchars($item['descr'])?></td>
@@ -52,5 +54,6 @@ require_once ROOT.'/'.Config::VIEW.'layouts/admin.php';
     </td>
     <td><a href="<?=Config::ADDRESS?>admin/reclama/delete/<?=$item['id']?>">Удалить</a></td>
   </tr>
-<?php } ?>
+<?php } 
+} ?>
 </table>

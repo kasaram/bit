@@ -26,23 +26,30 @@ class SiteController
 				$error = '?error';
 			} else {
 				$userData = Site::login($bitcoin);
-				ob_start();
-				session_start();
+				//ob_start();
+				if(session_status() !== PHP_SESSION_ACTIVE) session_start();
 		    User::sessionUser($userData);
 			}
 		}
 	  header('Location: /'.$error);
-		ob_end_flush();
+		//ob_end_flush();
 	}
 
 	/**
-	 *	Выход из личного кабинета
+	 *	Выход из личного кабинета 
 	*/
 	public function actionLogout()
 	{
-		setcookie(session_name(), '', 0);
-		session_unset();
-		session_destroy();
-		header('Location: /');
+		if(session_status() !== PHP_SESSION_ACTIVE) session_start();
+		foreach ($_SESSION as $k=>$v) {
+			if($k == 'adm_log' || $k == 'adm_pass') continue;
+			else unset($_SESSION[$k]);
+		}
+		if (empty($_SESSION)) {
+			setcookie(session_name(), '', 0);
+			session_unset();
+			session_destroy();
+		}
+		header('Location: '.Config::ADDRESS);
 	}
 }
