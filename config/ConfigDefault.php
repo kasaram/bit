@@ -11,6 +11,7 @@ class ConfigDefault
 	const COMPONENTS = "components/";
 	const TEMPLATE = "views/bitthem/";
 	const LOGS = "logs/log.txt";
+	const TEXT = "text/messages.ini";
 	const DB_DSN = "mysql:host=localhost; dbname=bitcoin";
 	const DB_USER = "bitcoin";
 	const DB_PASS = "123456";

@@ -6,21 +6,12 @@ require_once ROOT.'/'.Config::VIEW.'layouts/admin.php';
 <p style = "color:#1d4bee;">Здесь будут выводиться пользователи которым необходимо перевести дениги</p>
 
 <?php 
-  $msg = ['sucUpd'=>'Успешно произведена операция по обнулению баланса!'];
-  $err = ['failUpd'=>'обнулить баланс!'];
-  $style = 'display:none;';
-  if (isset($_GET) && !empty($_GET)) {
-    $get = array_keys($_GET)[0];
-    if (key_exists($get, $msg)) {
-      $style = 'color:#5cd212;';
-      $text = $msg[$get];
-    } else if (key_exists($get, $err)) { 
-      $style = 'color:#d21212;';
-      $text = 'Произошла ошибка, не удалось '.$err[$get];
-    } 
+  //выводим сообщение об ошибке или успехе проведения операции
+  if(isset($_GET['res']) && !empty($_GET['res'])){ 
+    echo Message::getMsg($_GET['res']);
   } 
 ?>
-<p style="<?=$style?>"><?=$text?></p>
+
 
 <table border=1 cellspacing=0 cellpadding=10>
   <tr>

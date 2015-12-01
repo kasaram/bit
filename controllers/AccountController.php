@@ -21,21 +21,20 @@ class AccountController
 	{
 		if(isset($_POST['submit']) && !empty(trim($_POST['bitcoin']))){
 			$result = Account::changeBitcoin($_POST['bitcoin'], $_SESSION['id']);
-			$res = !empty($result) ? 'sucBit' : 'failBit';
-		}
-		//ob_start();
-		header('Location:'.Config::ADDRESS.'account/?'.$res);
-		//ob_end_flush();
+			$res = !empty($result) ? 'suc_bit_change' : 'fail_bit_change';
+		} else $res = 'fail_bit_change';
+		header('Location:'.Config::ADDRESS.'account/?res='.$res);
 	}
 
 	/*
-	 * Принимает параметры изменения автоплатежа и возвращает на страницу Account
+	 * Изменяет состояние автоплатежа и возвращает на страницу Account
 	*/
 	public function actionWithdraw()
 	{
 		$with = isset($_POST['withdraw']) ? '1' : '0';
-		Account::changeWithdraw($with, $_SESSION['id']);
-		header('Location:'.Config::ADDRESS.'account');
+		$result = Account::changeWithdraw($with, $_SESSION['id']);
+		$res = !empty($result) ? 'suc_with_change' : 'fail_with_change';
+		header('Location:'.Config::ADDRESS.'account/?res='.$res);
 	}
 
 

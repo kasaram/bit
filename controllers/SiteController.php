@@ -19,20 +19,18 @@ class SiteController
 	*/
 	public function actionLogin()
 	{
-		$error = '';
+		$res = '';
 		if(isset($_POST['submit']) && !empty(trim($_POST['bitcoin']))) {
 			$bitcoin = Validate::cleanStr($_POST['bitcoin']);
 			if(!Validate::checkBitcoin($bitcoin)) {
-				$error = '?error';
+				$res = '?res=fail_bit';
 			} else {
 				$userData = Site::login($bitcoin);
-				//ob_start();
 				if(session_status() !== PHP_SESSION_ACTIVE) session_start();
 		    User::sessionUser($userData);
 			}
 		}
-	  header('Location: /'.$error);
-		//ob_end_flush();
+	  header('Location: '.Config::ADDRESS.$res);
 	}
 
 	/**

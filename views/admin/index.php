@@ -27,14 +27,16 @@ require_once ROOT.'/'.Config::VIEW.'layouts/admin.php';
 	<div id="backSite"><a href="<?=Config::ADDRESS?>">ВЕРНУТЬСЯ НА САЙТ</a></div>
 
 	<form id="autForm" action="<?=Config::ADDRESS?>admin/login" method="post">
-		<?php if(isset($_GET['failAuth'])) { ?>
-			<p class="err">Вы не верно ввели логин или пароль, попробуйте еще раз!</p>
-		<?php	}?>
+		<?php 
+		  //выводим сообщение об ошибке или успехе проведения операции
+		  if(isset($_GET['res']) && !empty($_GET['res'])){ 
+		    echo Message::getMsg($_GET['res']);
+		  } 
+		?>
 		<input type="text" name="adm_log" class="autField" placeholder="Логин"><br/>
 		<input type="password" name="adm_pass" class="autField" placeholder="Пароль"><br/>
 		<input type="submit" name="authSubmit" class="autField" value="ВОЙТИ">
 	</form>
 </div>
-
 
 <?php } else self::checkAdmin(); ?>

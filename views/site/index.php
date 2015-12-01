@@ -4,9 +4,12 @@ require_once ROOT.'/'.Config::VIEW.'layouts/header.php';
 
 echo 'Это представление главной страницы обрабатывает SiteController  и его экшен actionIndex<br><br>';
 ?>
-<?php if(isset($_GET['error'])){ ?>
-    <p style="color:#ed4848;">Вы указали не корректный биткоин!</p>
-<?php  } ?>
+<?php 
+  //выводим сообщение об ошибке или успехе проведения операции
+  if(isset($_GET['res']) && !empty($_GET['res'])){ 
+    echo Message::getMsg($_GET['res']);
+  } 
+?>
 
 <?php if(!isset($_SESSION['bitcoin'])) { ?>
   <form action="login" method="post">

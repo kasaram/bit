@@ -7,12 +7,12 @@ require_once ROOT.'/config/AdminConfig.php';
 
 <p style = "color:#1d4bee;">Здесь будут выводиться общие настройки сайта</p>
 
-<?php if(isset($_GET['suc'])) {?>
-  <p style="color:#5cd212;">Данные успешно изменены! </p>
-<?php } ?>
-<?php if(isset($_GET['fail'])) {?>
-  <p style="color:#d21212;">Произошла ошибка, данные не удалось изменить!</p>
-<?php } ?>
+<?php 
+  //выводим сообщение об ошибке или успехе проведения операции
+  if(isset($_GET['res']) && !empty($_GET['res'])){ 
+    echo Message::getMsg($_GET['res']);
+  } 
+?>
 
 <form action="<?=Config::ADDRESS?>admin/service" method="post">
   <p>
@@ -31,8 +31,6 @@ require_once ROOT.'/config/AdminConfig.php';
     Слово в конце URL-адреса для входа в админ панель:
     <input class="field "type="text" name="secret" placeholder="<?=Config::SECRET?>">
   </p>
-  <br/>
-  <hr/>
   <br/>
   <p>
     Наименование валюты:

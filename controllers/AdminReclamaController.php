@@ -19,10 +19,12 @@ class AdminReclamaController extends AdminBase
 		if(isset($_POST['submit'])) {
 			$title = Validate::cleanStr($_POST['title']);
 			$descr = htmlspecialchars($_POST['descr']);
-			$result = Reclama::addReclama(['title', 'descr', 'pubTime'], [$title, $descr, time()]);
-			$res = isset($result) ? 'sucCrt' : 'failCrt';
-		} else $res = 'failCrt';
-		header('Location:'.Config::ADDRESS.'admin/reclama/?'.$res);
+			if(!empty($title) && !empty($descr)) {
+				$result = Reclama::addReclama(['title', 'descr', 'pubTime'], [$title, $descr, time()]);
+			}
+			$res = isset($result) ? 'suc_reclama_create' : 'fail_reclama_create';
+		} else $res = 'fail_reclama_create';
+		header('Location:'.Config::ADDRESS.'admin/reclama/?res='.$res);
 	}
 
 	public function actionUpdate($id)
@@ -31,9 +33,9 @@ class AdminReclamaController extends AdminBase
 		if (isset($id)) {
 			$publish = isset($_POST['publish']) ? '1' : '0';
 			$result = Reclama::updateStatusReclama($id, $publish);
-			$res = isset($result) ? 'sucUpd' : 'failUpd';
-		} else $res = 'failUpd';
-		header('Location:'.Config::ADDRESS.'admin/reclama/?'.$res);
+			$res = isset($result) ? 'suc_reclama_change' : 'fail_reclama_change';
+		} else $res = 'fail_reclama_change';
+		header('Location:'.Config::ADDRESS.'admin/reclama/?res='.$res);
 	}
 
 	public function actionDelete($id)
@@ -41,9 +43,9 @@ class AdminReclamaController extends AdminBase
 		self::checkAdmin();
 		if(isset($id)) {
 			$result = Reclama::removeReclama($id);
-			$res = isset($result) ? 'sucDel' : 'failDel';
-		} else $res = 'failDel';
-		header('Location:'.Config::ADDRESS.'admin/reclama/?'.$res);
+			$res = isset($result) ? 'suc_reclama_delete' : 'fail_reclama_delete';
+		} else $res = 'fail_reclama_delete';
+		header('Location:'.Config::ADDRESS.'admin/reclama/?res='.$res);
 	}
 
 

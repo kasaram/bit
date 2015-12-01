@@ -16,8 +16,6 @@ echo 'Шапка сайта, тут распологается меню, лог�
   <?php
     if(isset($_SESSION['balance'])) echo Format::coinFormat($_SESSION['balance']).' '.Config::COIN;
     else echo 0;
-
-    print_r(Config::SECRET);
   ?>
 </p>
   <a href="<?=Config::ADDRESS?>">Site</a>

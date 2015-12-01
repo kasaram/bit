@@ -6,21 +6,13 @@ require_once ROOT.'/'.Config::VIEW.'layouts/admin.php';
 <p style = "color:#1d4bee;">Здесь будут выводиться настройки баннеров</p>
 
 <?php 
-  $msg = ['sucCrt'=>'создан!','sucUpd' => 'обновлен!','sucDel' => 'удален!', 'sucAdd'=>'сохранен!'];
-  $err = ['failCrt'=>'создать', 'failUpd'=>'обновить', 'failDel'=>'удалить', 'failAdd'=>'сохранить'];
-  $style = 'display:none;';
-  if (isset($_GET) && !empty($_GET)) {
-    $get = array_keys($_GET)[0];
-    if (key_exists($get, $msg)) {
-      $style = 'color:#5cd212;';
-      $text = 'Баннер успешно '.$msg[$get];
-    } else if (key_exists($get, $err)) { 
-      $style = 'color:#d21212;';
-      $text = 'Произошла ошибка, не удалось '.$err[$get].' баннер!';
-    } 
+  //выводим сообщение об ошибке или успехе проведения операции
+  if(isset($_GET['res']) && !empty($_GET['res'])){ 
+    echo Message::getMsg($_GET['res']);
   } 
 ?>
-<p style="<?=$style?>"><?=$text?></p>
+
+
 <h3>Указать статические баннеры</h3>
 <form action="<?=Config::ADDRESS?>admin/banners/add" method="post">
   <p class="area">

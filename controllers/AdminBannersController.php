@@ -19,10 +19,12 @@ class AdminBannersController extends AdminBase
 		if(isset($_POST['submit'])) {
 			$title = Validate::cleanStr($_POST['title']);
 			$descr = htmlspecialchars($_POST['descr']);
-			$result = Banners::addBanner(['title', 'descr', 'pubTime'], [$title, $descr, time()]);
-			$res = isset($result) ? 'sucCrt' : 'failCrt';
-		} else $res = 'failCrt';
-		header('Location:'.Config::ADDRESS.'admin/banners/?'.$res);
+			if(!empty($title) && !empty($descr)) {
+				$result = Banners::addBanner(['title', 'descr', 'pubTime'], [$title, $descr, time()]);
+			}
+			$res = isset($result) ? 'suc_banner_create' : 'fail_banner_create';
+		} else $res = 'fail_banner_create';
+		header('Location:'.Config::ADDRESS.'admin/banners/?res='.$res);
 	}
 
 	public function actionUpdate($id)
@@ -31,9 +33,9 @@ class AdminBannersController extends AdminBase
 		if (isset($id)) {
 			$publish = isset($_POST['publish']) ? '1' : '0';
 			$result = Banners::updateStatusBanner($id, $publish);
-			$res = isset($result) ? 'sucUpd' : 'failUpd';
-		} else $res = 'failUpd';
-		header('Location:'.Config::ADDRESS.'admin/banners/?'.$res);
+			$res = isset($result) ? 'suc_banner_change' : 'fail_banner_change';
+		} else $res = 'fail_banner_change';
+		header('Location:'.Config::ADDRESS.'admin/banners/?res='.$res);
 	}
 
 	public function actionDelete($id)
@@ -41,9 +43,9 @@ class AdminBannersController extends AdminBase
 		self::checkAdmin();
 		if(isset($id)) {
 			$result = Banners::removeBanner($id);
-			$res = isset($result) ? 'sucDel' : 'failDel';
-		} else $res = 'failDel';
-		header('Location:'.Config::ADDRESS.'admin/banners/?'.$res);
+			$res = isset($result) ? 'suc_banner_delete' : 'fail_banner_delete';
+		} else $res = 'fail_banner_delete';
+		header('Location:'.Config::ADDRESS.'admin/banners/?res='.$res);
 	}
 
 	public function actionAdd()
@@ -53,8 +55,8 @@ class AdminBannersController extends AdminBase
 			$default = isset($_POST['default']) ? true : null;
 			$post = array_map(function($v){return htmlspecialchars($v);}, $_POST);
 			$result = Admin::saveConfig($post, $default);
-			$res = isset($result) ? 'sucAdd' : 'failAdd';
-			header('Location:'.Config::ADDRESS.'admin/banners/?'.$res);
+			$res = isset($result) ? 'suc_banner_instal' : 'fail_banner_instal';
+			header('Location:'.Config::ADDRESS.'admin/banners/?res='.$res);
 		}
 		require_once ROOT.'/'.Config::VIEW.'admin/banners.php';
 		return true;

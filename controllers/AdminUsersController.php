@@ -18,9 +18,9 @@ class AdminUsersController extends AdminBase
 		self::checkAdmin();
 		if (isset($id)) {
 			$result = User::changeUser(['balance'=>'0'],$id);
-			$res = isset($result) ? 'sucUpd' : 'failUpd';
-		} else $res = 'failUpd';
-		header('Location:'.Config::ADDRESS.'admin/users/?'.$res);
+			$res = isset($result) ? 'suc_user_zero' : 'fail_user_zero';
+		} else $res = 'fail_user_zero';
+		header('Location:'.Config::ADDRESS.'admin/users/?res='.$res);
 	}
 
 }

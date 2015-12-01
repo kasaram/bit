@@ -5,17 +5,13 @@ require_once ROOT.'/'.Config::VIEW.'layouts/header.php';
 echo "Здесь будет выводиться страница Contact<br>";
 ?>
 
-<?php if($result) { ?>
-  <p style="color:#49d705;">Message sent! We will respond to the specified email.</p>
-<?php } else { ?>
-  <?php if(isset($errors) && is_array($errors)) { ?>
-    <ul>
-      <?php foreach ($errors as $error) { ?>
-        <li style="color:#e90d0d;">- <?php echo $error;?></li>
-      <?php } ?>
-    </ul>
-  <?php }
-} ?>
+<?php 
+  //выводим сообщение об ошибке или успехе проведения операции
+  if(isset($msg) && !empty($msg)){ 
+    echo Message::getMsg($msg);
+  } 
+?>
+
 
 <form action="" method="post">
   <br/>Name: <input type="text" name="name" value=""><br/><br/>

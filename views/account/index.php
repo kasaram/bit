@@ -2,28 +2,15 @@
 defined('BIT') or die;
 require_once ROOT.'/'.Config::VIEW.'layouts/header.php';
 ?>
-<!-- <script>
-  $(document).on('change', '#checkwithdraw', function() {
-    $.post('<?=Config::ADDRESS?>account/withdraw', {
-      'withdraw': ($(this).is(':checked') ? 'es' : 'no')
-    //} , function(data){
-        //alert(data);
-    });
-  });
-</script> -->
-
 
 <h3 style="color:#7096f6;"> Здесь будет выводиться страница Account</h3>
 
-<?php if(isset($_SESSION['id'])) { ?>
-
-  <!-- Сообщение о изменении биткоина -->
-  <?php if(isset($_GET['sucBit'])) {?>
-    <p style="color:#5cd212;">Bitcoin successfully changed! </p>
-  <?php } ?>
-  <?php if(isset($_GET['failBit'])) {?>
-    <p style="color:#d21212;">Bitcoin is invalid!</p>
-  <?php } ?>
+<?php if(isset($_SESSION['id'])) { 
+  //выводим сообщение об ошибке или успехе проведения операции
+  if(isset($_GET['res']) && !empty($_GET['res'])){ 
+    echo Message::getMsg($_GET['res']);
+  } 
+?>
 
   <p>
     <form action="<?=Config::ADDRESS?>account/bitcoin" method="post">

@@ -11,6 +11,7 @@
 		const COMPONENTS = "components/";
 		const TEMPLATE = "views/bitthem/";
 		const LOGS = "logs/log.txt";
+		const TEXT = "text/messages.ini";
 		const DB_DSN = "mysql:host=localhost; dbname=bitcoin";
 		const DB_USER = "bitcoin";
 		const DB_PASS = "123456";
@@ -42,7 +43,7 @@
 		const AMOUNT_BONUS_2 = "1500";
 		const NUM_VIDEO = "4";
 		const TIME_VIDEO = "60";
-		const BANNER_TOP = "&lt;script&gt;&lt;br/&gt;&lt;/script&gt;";
+		const BANNER_TOP = "Код для баннера сверху";
 		const BANNER_LEFT = "Код для баннера слева";
 		const BANNER_RIGHT = "Код для баннера справа";
 		

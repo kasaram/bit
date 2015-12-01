@@ -4,12 +4,12 @@ require_once ROOT.'/'.Config::VIEW.'layouts/admin.php';
 ?>
 <p style = "color:#1d4bee;">Здесь подключаются настройки игры</p>
 
-<?php if(isset($_GET['suc'])) {?>
-  <p style="color:#5cd212;">Данные успешно изменены! </p>
-<?php } ?>
-<?php if(isset($_GET['fail'])) {?>
-  <p style="color:#d21212;">Произошла ошибка, данные не удалось изменить!</p>
-<?php } ?>
+<?php 
+  //выводим сообщение об ошибке или успехе проведения операции
+  if(isset($_GET['res']) && !empty($_GET['res'])){ 
+    echo Message::getMsg($_GET['res']);
+  } 
+?>
 
 <form action="game" method="post">
   <p>

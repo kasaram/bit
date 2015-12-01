@@ -19,7 +19,7 @@ class AdminController extends AdminBase
 			$log = Validate::cleanStr($_POST['adm_log']);
 			$pass = Validate::cleanStr($_POST['adm_pass']);
 			$result = Admin::loginAdmin($log, $pass);
-			$res = !empty($result) ? '' : '/?failAuth';
+			$res = !empty($result) ? '' : '/?'.Config::SECRET.'&res=fail_admin_auth';
 		} else self::checkAdmin();
 		header('Location: '.Config::ADDRESS.'admin'.$res);
 	}
@@ -45,8 +45,8 @@ class AdminController extends AdminBase
 			$default = isset($_POST['default']) ? true : null;
 			$post = array_map(function($v){return Validate::cleanStr($v);}, $_POST);
 			$result = Admin::saveConfig($post, $default);
-			$res = isset($result) ? 'suc' : 'fail';
-			header('Location:'.Config::ADDRESS.'admin/game/?'.$res);
+			$res = isset($result) ? 'suc_game_change' : 'fail_game_change';
+			header('Location:'.Config::ADDRESS.'admin/game/?res='.$res);
 		}
 		require_once ROOT.'/'.Config::VIEW.'admin/game.php';
 		return true;
@@ -59,8 +59,8 @@ class AdminController extends AdminBase
 			$default = isset($_POST['default']) ? true : null;
 			$post = array_map(function($v){return Validate::cleanStr($v);}, $_POST);
 			$result = Admin::saveConfig($post, $default);
-			$res = isset($result) ? 'suc' : 'fail';
-			header('Location:'.Config::ADDRESS.'admin/design/?'.$res);
+			$res = isset($result) ? 'suc_design_change' : 'fail_design_change';
+			header('Location:'.Config::ADDRESS.'admin/design/?res='.$res);
 		}
 		require_once ROOT.'/'.Config::VIEW.'admin/design.php';
 		return true;
@@ -73,17 +73,18 @@ class AdminController extends AdminBase
 			$default = isset($_POST['default']) ? true : null;
 			$post = array_map(function($v){return Validate::cleanStr($v);}, $_POST);
 			$result = Admin::saveConfig($post, $default);
+			$res = isset($result) ? 'suc_service_change' : 'fail_service_change';
 		} elseif (isset($_POST['saveAdmin'])) {
 			require_once ROOT.'/config/AdminConfig.php';
 			$post = array_map(function($v){return Validate::cleanStr($v);}, $_POST);
 			$result = Admin::saveConfig($post, null, 'AdminConfig', 'config/AdminConfig.php');
+			$res = isset($result) ? 'suc_admin_change' : 'fail_admin_change';
 		} else {
 			require_once ROOT.'/'.Config::VIEW.'admin/service.php';
 			return true;
 			die();
 		}
-		$res = isset($result) ? 'suc' : 'fail';
-		header('Location:'.Config::ADDRESS.'admin/service/?'.$res);
+		header('Location:'.Config::ADDRESS.'admin/service/?res='.$res);
 	}
 
 	public function actionPage()
