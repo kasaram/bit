@@ -2,71 +2,84 @@
 defined('BIT') or die;
 require_once ROOT.'/'.Config::VIEW.'layouts/admin.php';
 ?>
-
-<p style = "color:#1d4bee;">Здесь будут выводиться настройки баннеров</p>
-
-<?php 
-  //выводим сообщение об ошибке или успехе проведения операции
-  if(isset($_GET['res']) && !empty($_GET['res'])){ 
-    echo Message::getMsg($_GET['res']);
-  } 
-?>
-
-
-<h3>Указать статические баннеры</h3>
-<form action="<?=Config::ADDRESS?>admin/banners/add" method="post">
-  <p class="area">
-    Баннер вверху:
-    <textarea name="banner_top" class="field area" cols="30" rows="10" placeholder="<?=Config::BANNER_TOP?>"></textarea>
-  </p>
-  <p class="area">
-    Баннер слева:
-    <textarea name="banner_left" class="field area" cols="30" rows="10" placeholder="<?=Config::BANNER_LEFT?>"></textarea>
-  </p>
-  <p class="area">
-    Баннер справа:
-    <textarea name="banner_right" class="field area" cols="30" rows="10" placeholder="<?=Config::BANNER_RIGHT?>"></textarea>
-  </p>
-  <p>
-    <input type="submit" name="default" value="По умолчанию">
-    <input type="submit" name="save" value="Сохранить">
-  </p>
-</form>
-<hr/>
-
-<h3>Добавить баннер</h3>
-<form action="<?=Config::ADDRESS?>admin/banners/create" method="post">
-  <p>Заголовок: <input class="field" name="title" type="text"></p>
-  <p class="area">Содержимое: <textarea class="field area" name="descr" cols="30" rows="10"></textarea></p>
-  <p><input class="sub" type="submit" name="submit" value="Создать"></p>
-</form>
-<br>
-<hr>
-<br>
-<table border=1 cellspacing=0 cellpadding=10>
-  <tr>
-    <th>Заголовок</th>
-    <th>Содержимое</th>
-    <th>Дата публикации</th>
-    <th>Опубликовано</th>
-    <th>Удаление</th>
-  </tr>
-<?php 
-if (isset($listBanners)) {
-  foreach ($listBanners as $item) { 
+<div id="content">
+  <div class="viewname">Баннеры</div>
+  <?php 
+    //выводим сообщение об ошибке или успехе проведения операции
+    if(isset($_GET['res']) && !empty($_GET['res'])){ 
+      echo Message::getMsg($_GET['res']);
+    } 
   ?>
+  <form action="<?=Config::ADDRESS?>admin/banners/add" method="post">
+    <div class="formname">Статичные баннеры</div>
+    <div class="form">
+      <div>
+        <div>Баннер вверху:</div>
+        <div><textarea name="banner_top" placeholder="<?=Config::BANNER_TOP?>"></textarea></div>
+      </div>
+      <div>
+        <div>Баннер слева:</div>
+        <div><textarea name="banner_left" placeholder="<?=Config::BANNER_LEFT?>"></textarea></div>
+      </div>
+      <div>
+        <div>Баннер справа:</div>
+        <div><textarea name="banner_right" placeholder="<?=Config::BANNER_RIGHT?>"></textarea></div>
+      </div>
+      <div>
+        <div></div>
+        <div>
+          <input type="submit" name="default" value="По умолчанию">
+          <input type="submit" name="save" value="Сохранить">
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <form action="<?=Config::ADDRESS?>admin/banners/create" method="post">
+    <div class="formname">Добавить баннер</div>
+    <div class="form">
+      <div>
+        <div>Заголовок:</div>
+        <div><input name="title" type="text" placeholder="Укажите заголовок баннера" required></div>
+      </div>
+      <div>
+        <div>Содержимое:</div>
+        <div><textarea name="descr" placeholder="Вставьте скрипт баннера" required></textarea></div>
+      </div>
+      <div>
+        <div></div>
+        <div><input type="submit" name="submit" value="Создать"></div>
+      </div>
+    </div>
+  </form>
+
+  <table border=1>
     <tr>
-      <td><?=$item['title']?></td>
-      <td><?=htmlspecialchars($item['descr'])?></td>
-      <td><?=Format::adminDate($item['pubTime'])?></td>
-      <td>
-        <form action="<?=Config::ADDRESS?>admin/banners/update/<?=$item['id'];?>" method="post">
-          <?php $checked = !empty($item['publish']) ? 'checked' : '';  ?>
-          <input type="checkbox" onclick="submit();" name="publish"  <?=$checked?>>
-        </form>
-      </td>
-      <td><a href="<?=Config::ADDRESS?>admin/banners/delete/<?=$item['id']?>">Удалить</a></td>
+      <td>Заголовок</td>
+      <td>Содержимое</td>
+      <td>Дата публикации</td>
+      <td>Опубликовано</td>
+      <td>Удаление</td>
     </tr>
-  <?php } 
-} ?>
-</table>
+  <?php 
+  if (isset($listBanners)) {
+    foreach ($listBanners as $item) { 
+    ?>
+      <tr>
+        <td><?=$item['title']?></td>
+        <td><?=htmlspecialchars($item['descr'])?></td>
+        <td><?=Format::adminDate($item['pubTime'])?></td>
+        <td>
+          <form action="<?=Config::ADDRESS?>admin/banners/update/<?=$item['id'];?>" method="post">
+            <?php $checked = !empty($item['publish']) ? 'checked' : '';  ?>
+            <input type="checkbox" onclick="submit();" name="publish"  <?=$checked?>>
+          </form>
+        </td>
+        <td><a href="<?=Config::ADDRESS?>admin/banners/delete/<?=$item['id']?>">Удалить</a></td>
+      </tr>
+    <?php } 
+  } ?>
+  </table>
+</div>
+</body>
+</html>

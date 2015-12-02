@@ -4,75 +4,87 @@ require_once ROOT.'/'.Config::VIEW.'layouts/admin.php';
 
 require_once ROOT.'/config/AdminConfig.php';
 ?>
-
-<p style = "color:#1d4bee;">Здесь будут выводиться общие настройки сайта</p>
-
-<?php 
-  //выводим сообщение об ошибке или успехе проведения операции
-  if(isset($_GET['res']) && !empty($_GET['res'])){ 
-    echo Message::getMsg($_GET['res']);
-  } 
-?>
-
-<form action="<?=Config::ADDRESS?>admin/service" method="post">
-  <p>
-    Наименование сайта:
-    <input class="field "type="text" name="site_name" placeholder="<?=Config::SITE_NAME?>">
-  </p>
-  <p>
-    Адрес сайта:
-    <input class="field "type="text" name="address" placeholder="<?=Config::ADDRESS?>">
-  </p>
-  <p>
-    E-mail администратора:
-    <input class="field "type="text" name="adm_email" placeholder="<?=Config::ADM_EMAIL?>">
-  </p>
-  <p>
-    Слово в конце URL-адреса для входа в админ панель:
-    <input class="field "type="text" name="secret" placeholder="<?=Config::SECRET?>">
-  </p>
-  <br/>
-  <p>
-    Наименование валюты:
-    <input class="field" type="text" name="coin" placeholder="<?=Config::COIN?>">
-  </p>
-  <p>
-    Минимальная суммма для снятия:
-    <input class="field" type="text" name="sum_amount" placeholder="<?=Config::SUM_AMOUNT?>">
-  </p>
-  <p>
-    Реферальная комиссия:
-    <input class="field "type="text" name="ref_commission" placeholder="<?=Config::REF_COMMISSION?>">
-  </p>
-  <p>
-    Количество отображаемых баннеров:
-    <input class="field" type="text" name="num_banners" placeholder="<?=Config::NUM_BANNERS?>">
-  </p>
-  <p>
-    Количество рекламы на странице бонусы:
-    <input class="field" type="text" name="num_reclame" placeholder="<?=Config::NUM_RECLAME?>">
-  </p>
-  <p>
-    Текст в подвале(футер) сайта:
-    <input class="field "type="text" name="footer_text" placeholder="<?=Config::FOOTER_TEXT?>">
-  </p>
-  <p>
-    <input type="submit" name="default" value="По умолчанию">
-    <input type="submit" name="save" value="Сохранить">
-  </p>
-</form>
-<hr/>
-<h4>Настройки администратора</h4>
-<form action="<?=Config::ADDRESS?>admin/service" method="post">
-  <p>
-    Логин администратора:
-    <input class="field" type="text" name="adm_log" placeholder="<?=AdminConfig::ADM_LOG?>">
-  </p>
-  <p>
-    Пароль администратора:
-    <input class="field" type="text" name="adm_pass" placeholder="<?=AdminConfig::ADM_PASS?>">
-  </p>
-  <p>
-    <input type="submit" name="saveAdmin" value="Сохранить">
-  </p>
-</form>
+<div id="content">
+  <div class="viewname">Настройки</div>
+  <?php 
+    //выводим сообщение об ошибке или успехе проведения операции
+    if(isset($_GET['res']) && !empty($_GET['res'])){ 
+      echo Message::getMsg($_GET['res']);
+    } 
+  ?>
+  <form action="<?=Config::ADDRESS?>admin/service" method="post">
+    <div class="formname">Общие настройки сайта</div>
+    <div class="form">
+      <div>
+        <div>Наименование сайта:</div>
+        <div><input type="text" name="site_name" placeholder="<?=Config::SITE_NAME?>"></div>
+      </div>
+      <div>
+        <div>Адрес сайта:</div>
+        <div><input type="text" name="address" placeholder="<?=Config::ADDRESS?>"></div>
+      </div>
+      <div>
+        <div>E-mail администратора:</div>
+        <div><input type="text" name="adm_email" placeholder="<?=Config::ADM_EMAIL?>"></div>
+      </div>
+      <div>
+        <div>Слово в конце URL-адреса для входа в админ панель:</div>
+        <div><input type="text" name="secret" placeholder="<?=Config::SECRET?>"></div>
+      </div>
+      <br/>
+      <div>
+        <div>Наименование валюты:</div>
+        <div><input  type="text" name="coin" placeholder="<?=Config::COIN?>"></div>
+      </div>
+      <div>
+        <div>Минимальная суммма для снятия:</div>
+        <div><input  type="text" name="sum_amount" placeholder="<?=Config::SUM_AMOUNT?>"></div>
+      </div>
+      <div>
+        <div>Реферальная комиссия:</div>
+        <div><input type="text" name="ref_commission" placeholder="<?=Config::REF_COMMISSION?>"></div>
+      </div>
+      <div>
+        <div>Количество отображаемых баннеров:</div>
+        <div><input  type="text" name="num_banners" placeholder="<?=Config::NUM_BANNERS?>"></div>
+      </div>
+      <div>
+        <div>Количество рекламы на странице бонусы:</div>
+        <div><input  type="text" name="num_reclame" placeholder="<?=Config::NUM_RECLAME?>"></div>
+      </div>
+      <div>
+        <div>Текст в подвале(футер) сайта:</div>
+        <div><input type="text" name="footer_text" placeholder="<?=Config::FOOTER_TEXT?>"></div>
+      </div>
+      <div>
+        <div></div>
+        <div>
+          <input type="submit" name="default" value="По умолчанию">
+          <input type="submit" name="save" value="Сохранить">
+        </div>
+      </div>
+    </div>
+  </form>
+  
+  <form action="<?=Config::ADDRESS?>admin/service" method="post">
+    <div class="formname">Настройки администратора</div>
+    <div class="form">
+      <div>
+        <div>Логин администратора:</div>
+        <div><input  type="text" name="adm_log" placeholder="<?=AdminConfig::ADM_LOG?>"></div>
+      </div>
+      <div>
+        <div>Пароль администратора:</div>
+        <div><input  type="text" name="adm_pass" placeholder="<?=AdminConfig::ADM_PASS?>"></div>
+      </div>
+      <div>
+        <div></div>
+        <div>
+          <input type="submit" name="saveAdmin" value="Сохранить">
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+</body>
+</html>

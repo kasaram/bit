@@ -1,0 +1,62 @@
+@font-face { font-family: "OpenSans"; src: url("../font/OpenSans-Regular-webfont.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+*, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+
+img { border: none; }
+
+body { background-color: #444444; margin: 0; overflow: hidden; font-size: 14px; line-height: 1.5; color: #222; font-family: "OpenSans"; }
+
+#mainmenu { width: 300px; float: left; height: 100vh; background-color: #444444; color: #fff; }
+#mainmenu > div:not(.menuactive) { min-height: 40px; line-height: 40px; padding-left: 20px; cursor: pointer; }
+#mainmenu > div:not(.menuactive):hover { background-color: #485d6b; }
+#mainmenu > a { display: block; min-height: 40px; line-height: 40px; padding-left: 20px; cursor: pointer; color: #fff; text-decoration: none; }
+#mainmenu > a:not(.active):hover { background-color: #485d6b; }
+#mainmenu > a.active { background-color: #497590; min-height: 40px; line-height: 40px; padding-left: 20px; cursor: pointer; }
+
+#content { background-color: #eee; float: left; width: calc(100% - 300px); height: 100vh; padding: 10px 30px; overflow: auto; }
+
+table { border-collapse: collapse; border-spacing: 0; border: 1px solid #eee; min-width: 600px; }
+table tr { min-height: 30px; line-height: 30px; }
+table tr td { text-align: center; padding: 0 10px; }
+table tr:nth-child(odd) { background-color: #e0e0e0; }
+table tr:nth-child(1) { background-color: #777; text-align: center; color: #fff; }
+
+input[type="text"], textarea { background-color: #fff; height: 35px; border: 1px solid #aaa; color: #333; font-size: 14px; border-radius: 4px; float: left; width: 100%; clear: both; padding: 0 10px; }
+
+input[type="text"]:focus, textarea:focus { outline: none; }
+
+textarea { padding: 7px 10px; line-height: 24px; min-height: 100px; max-height: 300px; resize: vertical; }
+
+.formname { text-align: center; width: 800px; font-size: 18px; }
+
+.form:after { content: ""; display: table; clear: both; }
+
+.form { width: 800px; padding-bottom: 20px; margin-bottom: 20px; border-bottom: 1px solid #aaa; }
+.form > div:after { content: ""; display: table; clear: both; }
+.form > div { min-height: 40px; margin-top: 10px; }
+.form > div > div:nth-child(1) { text-align: right; float: left; width: calc(50% - 5px); padding-top: 7px; }
+.form > div > div:nth-child(2) { text-align: left; float: right; width: calc(50% - 5px); }
+
+input[type="submit"], input[type="button"] { height: 30px; margin-right: 10px; cursor: pointer; }
+
+input[type="checkbox"] { cursor: pointer; }
+
+.viewname { font-size: 30px; margin-bottom: 10px; }
+
+a, a:visited{
+  color: #485d6b;
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: underline;
+}
+
+/*Центрирование содержимого*/
+.centerBlock {
+	text-align: center;
+}
+/*Желтая полоса в админке*/
+.adminLine {
+	height: 30px;
+  background: #fbc444;
+  border-bottom: 2px solid #848484;
+}

@@ -9,7 +9,7 @@
 		const VIEW = "views/";
 		const CONTROLLER = "controllers/";
 		const COMPONENTS = "components/";
-		const TEMPLATE = "views/bitthem/";
+		const TEMPLATE = "template/";
 		const LOGS = "logs/log.txt";
 		const TEXT = "text/messages.ini";
 		const DB_DSN = "mysql:host=localhost; dbname=bitcoin";
