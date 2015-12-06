@@ -4,6 +4,18 @@ defined('BIT') or die;
 
 class Validate
 {
+
+	/**
+	 * Статический метод, позволяющий проверить прошло ли время до следующей игры
+	 * @param int $time Принимает число секунд до следующей игры
+	 * @return bool Вернет булево значение в зависимости от того пройдена проверка или нет
+	 */
+	public static function checkPauseGame($time)
+	{
+		if (time() >= $time) return true;
+		else return false;
+	}
+
 	/**
  	 *  Метод для проверки корректного ввода биткоина
  	 *

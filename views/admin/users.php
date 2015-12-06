@@ -14,7 +14,7 @@ require_once ROOT.'/'.Config::VIEW.'layouts/admin.php';
     <tr>
       <td>Биткоин</td>
       <td>Баланс</td>
-      <td>Последний визит</td>
+      <td>Дата последнего снятия</td>
       <td>Дата регистрации</td>
       <td>Снятие</td>
     </tr>
@@ -25,9 +25,9 @@ require_once ROOT.'/'.Config::VIEW.'layouts/admin.php';
   	  <tr>
   	    <td><?=$item['bitcoin']?></td>
   	    <td><?=Format::coinFormat($item['balance'])?></td>
-  	    <td><?=Format::adminDate($item['lastVisit'])?></td>
+  	    <td><?=Format::adminDate($item['lastDateOut'])?></td>
   	    <td><?=Format::adminDate($item['regDate'])?></td>
-  	    <td><a href="<?=Config::ADDRESS?>admin/users/update/<?=$item['id']?>">Снять</a></td>
+  	    <td><a href="<?=Config::ADDRESS?>admin/users/update/<?=$item['id']?>/<?=$item['balance']?>">Снять</a></td>
   	  </tr>
   	<?php } 
   } ?>

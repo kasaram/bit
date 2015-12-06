@@ -9,6 +9,18 @@ class AccountController
 	*/
 	public function actionIndex()
 	{
+		//проверяем залогинин игрок или нет, если нет то переход на главную
+		if(!isset($_SESSION['id'])) header('Location: '.Config::ADDRESS); 
+		//если существует дневной бонус то пересчитываем его
+		if(isset($_SESSION['dailyBonus'])) {
+			Site::changeDailyBonus();
+		}
+		//получаем баланс и бонус
+		$balance = isset($_SESSION['id']) ? Site::getBalance() : 0;
+		$bonus = isset($_SESSION['id']) ? $_SESSION['bonus'] : 0;
+		//получаем данные последнего платежа для страницы акаунта из базы, а не из сессии, т.к. если админ произведет изменения, они не будут отображены в текущей сессии
+		$lastPay = Account::getLastPay();
+		//получаем баннеры
 		$listBanners = Banners::getBannersOnSite('rand');
 		require_once ROOT.'/'.Config::VIEW.'account/index.php';
 		return true;
@@ -36,8 +48,4 @@ class AccountController
 		$res = !empty($result) ? 'suc_with_change' : 'fail_with_change';
 		header('Location:'.Config::ADDRESS.'account/?res='.$res);
 	}
-
-
-
-
 }

@@ -5,7 +5,7 @@ require_once ROOT.'/'.Config::VIEW.'layouts/header.php';
 
 <h3 style="color:#7096f6;"> Здесь будет выводиться страница Account</h3>
 
-<?php if(isset($_SESSION['id'])) { 
+<?php
   //выводим сообщение об ошибке или успехе проведения операции
   if(isset($_GET['res']) && !empty($_GET['res'])){ 
     echo Message::getMsg($_GET['res']);
@@ -19,10 +19,19 @@ require_once ROOT.'/'.Config::VIEW.'layouts/header.php';
     </form>
   </p>
   <p>
-    Un puid balance: <?=Format::coinFormat($_SESSION['balance']).' '.Config::COIN?>
+    Un puid balance: <?=Format::coinFormat($balance).' '.Config::COIN?>
   </p>
   <p>
-    Last pay out: <?=Format::coinFormat($_SESSION['lastPayOut']).' '.Config::COIN.' was '.Format::dateFormat($_SESSION['lastDateOut'])?>
+    Bonus minutes: <?=$bonus?>
+  </p>
+  <p>
+    Daily bonus: <?=$_SESSION['dailyBonus'];?>
+  </p>
+  <p>
+      Last pay out: <?=Format::coinFormat($lastPay['lastPayOut']).' '.Config::COIN?>
+    <?php if(!empty($lastPay['lastDateOut'])) { ?>
+      was <?=Format::dateFormat($lastPay['lastDateOut']); ?>
+    <?php } ?>
   </p>
   <p>
     <form action="<?=Config::ADDRESS?>account/withdraw" method="post">
@@ -36,9 +45,8 @@ require_once ROOT.'/'.Config::VIEW.'layouts/header.php';
   <p>
     Minimum transfer amount: <?=Format::coinFormat(Config::SUM_AMOUNT).' '.Config::COIN?>
   </p>
+
 <?php
-} else {
-  echo 'Здесь отображается страница аккаунта не зарегистрированного пользователя';
-}
-require_once ROOT.'/'.Config::VIEW.'layouts/middle.php';
-require_once ROOT.'/'.Config::VIEW.'layouts/footer.php';
+  require_once ROOT.'/'.Config::VIEW.'layouts/middle.php';
+  require_once ROOT.'/'.Config::VIEW.'layouts/footer.php';
+?>

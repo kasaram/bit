@@ -45,6 +45,18 @@ require_once ROOT.'/config/AdminConfig.php';
         <div><input type="text" name="ref_commission" placeholder="<?=Config::REF_COMMISSION?>"></div>
       </div>
       <div>
+        <div>Количество бонусов за регистрацию:</div>
+        <div><input type="text" name="def_bonus" placeholder="<?=Config::DEF_BONUS?>"></div>
+      </div>
+      <div>
+        <div>Дневной бонус за посещение в сутки:</div>
+        <div><input type="text" name="daily_bonus" placeholder="<?=Config::DAILY_BONUS?>"></div>
+      </div>
+      <div>
+        <div>Максимальная сумма дневного бонуса за все время:</div>
+        <div><input type="text" name="max_daily_bonus" placeholder="<?=Config::MAX_DAILY_BONUS?>"></div>
+      </div>
+      <div>
         <div>Количество отображаемых баннеров:</div>
         <div><input  type="text" name="num_banners" placeholder="<?=Config::NUM_BANNERS?>"></div>
       </div>

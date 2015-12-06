@@ -5,8 +5,7 @@ class User
 {
 
 	/**
-	 *   Статический метод для получения данных из таблицы пльзователей
-	 *
+	 *  Статический метод для получения данных из таблицы пльзователей
 	 *	@param	string|array $data Указываем строку или массив полей, данные для которых необходимо извлечь
 	 *	@param	string|int $userId Указываем id пользователя, данные которого нужно получить
 	 *  @return array Вернет массив данных указанного юзера
@@ -18,29 +17,33 @@ class User
 		return $userData[0];
 	}
 
+	/**
+	 * Статический метод, который вернет определенные данные всех пользователей(для админки)
+	 * @return type Вернет массив пользователей
+	 */
 	public static function getUsersAll()
 	{
 		$db = DB::getDB();
-		$listUsers = $db->select(['id', 'bitcoin', 'balance', 'lastVisit', 'regDate'], 'users', [['withdraw'=>'=', 'balance'=>'>'],['AND']], ['DESC', 'balance'], null, ['1', Config::SUM_AMOUNT]);
+		$listUsers = $db->select(['id', 'bitcoin', 'balance', 'regDate', 'lastDateOut'], 'users', [['withdraw'=>'=', 'balance'=>'>'],['AND']], ['DESC', 'balance'], null, ['1', Config::SUM_AMOUNT]);
 		return $listUsers;
 	}
 
 	/**
-	 *  Статический метод для создания нового пользователя
-	 *
+	 * Статический метод для создания нового пользователя
 	 * @param string $bitcoin Принимает строку биткоина
-	 * @return bool Вернет булево значение в зависимости записы данные БД
+	 * @param string|int $bous Принимает строку бонуса
+	 * @param string|int $parentId Принимает число для реферала(родительский id)
+	 * @return bool Вернет булево значение в зависимости записаны ли данные БД
 	*/
-	public static function setUser($bitcoin)
+	public static function setUser($bitcoin, $parentId, $bonus = '0')
 	{
 			$db = DB::getDB();
-			$result = $db->insert('users', ['bitcoin', 'regDate'], [$bitcoin, time()]);
+			$result = $db->insert('users', ['bitcoin', 'parentId', 'regDate', 'bonus'], [$bitcoin, $parentId, time(), $bonus]);
 			return $result;
 	}
 
 	/**
- 	 *  Статический метод для изменения данных у пользователя
- 	 *
+ 	 * Статический метод для изменения данных у пользователя
  	 * @param array $data Массив данных, которые нужно обновить
  	 * @param string|int $userId Индекнтификатор пользователя, данные которого нужно изменить
  	 * @return bool Вернет истину если все удачно обновлено или ложь если не удалось обновить
@@ -55,8 +58,7 @@ class User
 	}
 
 	/**
- 	 *  Статический метод для получения id юзера из БД пользователей
- 	 *
+ 	 * Статический метод для получения id юзера из БД пользователей
  	 * @param string $bitcoin Принимает строку биткоина
  	 * @return array|bool Вернет массив содержащий id юзера или ложь
 	*/
@@ -68,8 +70,7 @@ class User
   }
 
 	/**
- 	 * 	Статический метод для записи данных о юзере в сессию
- 	 *
+ 	 * Статический метод для записи данных о юзере в сессию
  	 * @param array $userData Принимает массив данных о юзере
  	 * @return bool Вернет истину если удалось записать сессию или ложь в обратном случае
 	*/

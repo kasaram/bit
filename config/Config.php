@@ -30,21 +30,26 @@
 		const NUM_BANNERS = "6";
 		const NUM_RECLAME = "2";
 		const FOOTER_TEXT = "CBC Fond @ 2015";
-		const PAUSE_GAME = "5";
+		const PAUSE_GAME = "1";
 		const NUM_CHANCE = "10";
 		const NUM_WINS = "8";
 		const NUM_BONUSES = "2";
 		const NUM_BOXES = "20";
 		const MIN_AMOUNT = "80";
 		const MAX_AMOUNT = "600";
-		const MIN_TIME = "40";
-		const MAX_TIME = "300";
+		const MIN_BONUS = "40";
+		const MAX_BONUS = "300";
+		const DEF_BONUS = "2";
 		const AMOUNT_BONUS_1 = "1000";
 		const AMOUNT_BONUS_2 = "1500";
+		const DAILY_BONUS = "1";
+		const MAX_DAILY_BONUS = "100";
 		const NUM_VIDEO = "4";
 		const TIME_VIDEO = "60";
 		const BANNER_TOP = "Код для баннера сверху";
 		const BANNER_LEFT = "Код для баннера слева";
 		const BANNER_RIGHT = "Код для баннера справа";
+		const MIN_TIME = "40";
+		const MAX_TIME = "300";
 		
 	}

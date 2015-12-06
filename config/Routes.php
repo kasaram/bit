@@ -1,5 +1,6 @@
 <?php
 return [
+	'games/([a-z0-9]+)' => 'site/games/$1', //actionGames в SiteController
 	'page' => 'admin/page', //actionPage в AdminController
 	'admin/logout' => 'admin/logout', //actionLogout в AdminController
 	'admin/login' => 'admin/login', //actionLogin в AdminController
@@ -29,6 +30,7 @@ return [
 	'account' =>'account/index', //actionIndex в AccountController
 	'contact' =>'contact/index', //actionIndex в ContactController
 	'bonus' =>'bonus/index', //actionIndex в BonusController
+	'claim' => 'site/claim', //actionClaim в SiteController
 	'login' => 'site/login', //actionLogin в SiteController
 	'logout' => 'site/logout' //actionLogout в SiteController
 ];

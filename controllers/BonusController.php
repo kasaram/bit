@@ -9,6 +9,16 @@ class BonusController
 	*/
 	public function actionIndex()
 	{
+		//проверяем есть ли бонусы у игрока или нет, если нет то переход на главную
+		if(empty($_SESSION['bonus'])) header('Location: '.Config::ADDRESS);
+		//если существует дневной бонус то пересчитываем его
+		if(isset($_SESSION['dailyBonus'])) {
+			Site::changeDailyBonus();
+		}
+		//получаем баланс и бонус
+		$balance = isset($_SESSION['id']) ? Site::getBalance() : 0;
+		$bonus = isset($_SESSION['id']) ? $_SESSION['bonus'] : 0;
+		
 		$listBanners = Banners::getBannersOnSite('rand');
 		$reclameList = Reclama::getReclamaOnSite('rand');
 		$videoList = Video::getVideoOnSite('rand');

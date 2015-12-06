@@ -43,11 +43,11 @@ require_once ROOT.'/'.Config::VIEW.'layouts/admin.php';
       </div>
       <div>
         <div>Минимальный выйгрыш бонуса за один шанс:</div>
-        <div><input type="text" name="min_time" placeholder="<?=Config::MIN_TIME?>"></div>
+        <div><input type="text" name="min_bonus" placeholder="<?=Config::MIN_BONUS?>"></div>
       </div>
       <div>
         <div>Максимальный выйгрыш бонуса за один шанс:</div>
-        <div><input type="text" name="max_time" placeholder="<?=Config::MAX_TIME?>"></div>
+        <div><input type="text" name="max_bonus" placeholder="<?=Config::MAX_BONUS?>"></div>
       </div>
       <div>
         <div>Выйгрыша при клике по рекламе в бонусной игре(один):</div>

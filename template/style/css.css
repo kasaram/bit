@@ -42,21 +42,13 @@ input[type="checkbox"] { cursor: pointer; }
 
 .viewname { font-size: 30px; margin-bottom: 10px; }
 
-a, a:visited{
-  color: #485d6b;
-  text-decoration: none;
+a, a:visited{color: #485d6b; text-decoration: none;
 }
-a:hover{
-  text-decoration: underline;
-}
+a:hover{text-decoration: underline;}
 
 /*Центрирование содержимого*/
-.centerBlock {
-	text-align: center;
-}
+.centerBlock { text-align: center;}
 /*Желтая полоса в админке*/
-.adminLine {
-	height: 30px;
-  background: #fbc444;
-  border-bottom: 2px solid #848484;
-}
+.adminLine {height: 30px; background: #fbc444; border-bottom: 2px solid #848484; text-align: right; padding-right: 20px;}
+.adminLine a { color:#fff; line-height: 28px; }
+.adminLine a:hover { text-decoration:none; text-shadow: 0px 0px 10px #D29916;}

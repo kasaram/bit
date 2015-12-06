@@ -9,5 +9,6 @@ body { background-color: #fbc444; margin: 0; overflow: hidden; font-size: 14px; 
 #autForm input[type="submit"] {background: #1CDC4E;  color: #fff;  font-weight: bold;  padding:0;}
 #autForm input[type="submit"]:hover {	background: #22C54D; }
 #backSite{height:30px;width: 100%;text-align: center;line-height: 30px;background: #C3C3C3;}
-#backSite a{color: #fff; text-decoration: none; text-shadow: 0px 0px 10px #7D7D7D;}
+#backSite a{color: #fff; text-decoration: none;}
+#backSite a:hover{ text-shadow: 0px 0px 10px #7D7D7D;}
 .err {color:#d21212; background: #fff; padding: 10px; border-radius: 5px; text-align: center;	}

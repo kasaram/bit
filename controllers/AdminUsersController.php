@@ -13,11 +13,12 @@ class AdminUsersController extends AdminBase
 		return true;
 	}
 
-	public function actionUpdate($id)
+	public function actionUpdate($id, $balance)
 	{
 		self::checkAdmin();
 		if (isset($id)) {
-			$result = User::changeUser(['balance'=>'0'],$id);
+			$time = time();
+			$result = User::changeUser(['balance'=>'0', 'refBonus'=>'0', 'lastPayOut'=>$balance, 'lastDateOut'=>$time],$id);
 			$res = isset($result) ? 'suc_user_zero' : 'fail_user_zero';
 		} else $res = 'fail_user_zero';
 		header('Location:'.Config::ADDRESS.'admin/users/?res='.$res);
