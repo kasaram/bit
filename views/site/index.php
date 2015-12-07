@@ -12,7 +12,6 @@ echo 'Это представление главной страницы обра
 ?>
 
 
-
 <?php if(!isset($_SESSION['bitcoin'])) { ?>
   <form action="login" method="post">
     <?php if (isset($_GET['ref']) && !empty($_GET['ref'])) { ?>
@@ -51,6 +50,7 @@ echo 'Это представление главной страницы обра
 
 
 <?php } ?>
+
 
 
 <?php

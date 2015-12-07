@@ -18,7 +18,7 @@ class BonusController
 		//получаем баланс и бонус
 		$balance = isset($_SESSION['id']) ? Site::getBalance() : 0;
 		$bonus = isset($_SESSION['id']) ? $_SESSION['bonus'] : 0;
-		
+		//формируем массивы баннеров, реклымы и видео
 		$listBanners = Banners::getBannersOnSite('rand');
 		$reclameList = Reclama::getReclamaOnSite('rand');
 		$videoList = Video::getVideoOnSite('rand');

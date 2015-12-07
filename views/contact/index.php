@@ -14,9 +14,12 @@ echo "Здесь будет выводиться страница Contact<br>";
 
 
 <form action="" method="post">
-  <br/>Name: <input type="text" name="name" value=""><br/><br/>
-  Email: <input type="email" name="email" value=""><br/><br/>
+  <br/>Name: <input type="text" name="name" ><br/><br/>
+  Email: <input type="email" name="email" ><br/><br/>
   Message: <textarea name="message" rows="8" cols="40"></textarea><br/><br/>
+  <img id="imgCaptcha" src="<?=Config::ADDRESS?>helpers/captcha.php" alt="captcha"> 
+  <a href="#" onclick="document.getElementById('imgCaptcha').src = '<?=Config::ADDRESS?>helpers/captcha.php?' + Math.random();" >Update</a>
+  <input type="text" name="captcha" ><br/><br/>
   <input type="submit" name="submit" value="Send">
 </form>
 

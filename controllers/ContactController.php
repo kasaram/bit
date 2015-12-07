@@ -6,7 +6,7 @@ class ContactController
 {
 
 	/**
- 	 * Отоюражает страницу Contact
+ 	 * Отоюражает и обрабатывает страницу Contact
 	 */
 	public function actionIndex()
 	{
@@ -21,10 +21,8 @@ class ContactController
 		$bonus = isset($_SESSION['id']) ? $_SESSION['bonus'] : 0;
 		//если пришла форма, то обрабатываем ее и отправляем письмо
 		if(isset($_POST['submit'])) {
-			$name = Validate::cleanStr($_POST['name']);
-			$email = Validate::cleanStr($_POST['email']);
-			$message = Validate::cleanStr($_POST['message']);
-			$msg = Contact::sendMail($name, $email, $message);
+			unset($_POST['submit']);
+			$msg = Contact::sendMail($_POST);
 		}
 		require_once ROOT.'/'.Config::VIEW.'contact/index.php';
 		return true;
