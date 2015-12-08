@@ -5,6 +5,32 @@ class Site
 {
 
   /**
+   * Статический метод для пересчета и установки новых значений данных игрока
+   * @return void
+   */
+  public static function setDataGame()
+  {
+    //если есть дневной бонус, то пересчитываем выигрыш за игру и складываем его с балансом
+    if(!empty($_SESSION['dailyBonus'])) {
+      $dailyBonus = floor(($_SESSION['claimAmount'] * $_SESSION['dailyBonus'])/100); 
+      $gameBalance = $_SESSION['claimAmount'] + $dailyBonus;
+    } else $gameBalance = $_SESSION['claimAmount'];
+    //пересчитываем баланс и бонус
+    $balance = $_SESSION['balance'] + $gameBalance;
+    $bonus = $_SESSION['bonus'] + $_SESSION['bonusMinutes'];
+    //записываем новые значения баланса и бонуса в бд
+    $res = User::changeUser(['balance'=>$balance, 'bonus'=>$bonus], $_SESSION['id']);
+    if(!empty($res)) {
+      $_SESSION['balance'] = $balance;
+      $_SESSION['bonus'] = $bonus;
+      $_SESSION['claimAmount'] = 0;
+      $_SESSION['bonusMinutes'] = 0;
+      $_SESSION['claimAmountBefore'] = 0;
+      $_SESSION['bonusMinutesBefore'] = 0;
+    }
+  }
+
+  /**
    * Статический метод для получения баланса
    * @return int Вернет число баланса
    */
@@ -30,7 +56,7 @@ class Site
     } else {
       $userId = User::getUserId($bitcoin);
     }
-    $userData = User::getUser(['id', 'bitcoin', 'parentId', 'regDate', 'nextVisit', 'withdraw','balance','lastPayOut','lastDateOut', 'bonus', 'dailyBonus', 'pauseGame'], $userId);
+    $userData = User::getUser(['id', 'bitcoin', 'parentId', 'regDate', 'nextVisit', 'withdraw','balance','lastPayOut','lastDateOut', 'bonus', 'dailyBonus', 'pauseGame', 'pauseBonus'], $userId);
     return $userData;
   }
 

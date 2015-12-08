@@ -43,7 +43,7 @@ class AdminController extends AdminBase
 		self::checkAdmin();
 		if (isset($_POST['default']) || isset($_POST['save'])) {
 			$default = isset($_POST['default']) ? true : null;
-			$post = array_map(function($v){return Validate::cleanStr($v);}, $_POST);
+			$post = Validate::cleanArr($_POST);
 			$result = Admin::saveConfig($post, $default);
 			$res = isset($result) ? 'suc_game_change' : 'fail_game_change';
 			header('Location:'.Config::ADDRESS.'admin/game/?res='.$res);
@@ -57,7 +57,7 @@ class AdminController extends AdminBase
 		self::checkAdmin();
 		if (isset($_POST['default']) || isset($_POST['save'])) {
 			$default = isset($_POST['default']) ? true : null;
-			$post = array_map(function($v){return Validate::cleanStr($v);}, $_POST);
+			$post = Validate::cleanArr($_POST);
 			$result = Admin::saveConfig($post, $default);
 			$res = isset($result) ? 'suc_design_change' : 'fail_design_change';
 			header('Location:'.Config::ADDRESS.'admin/design/?res='.$res);
@@ -71,12 +71,12 @@ class AdminController extends AdminBase
 		self::checkAdmin();
 		if (isset($_POST['default']) || isset($_POST['save'])) {
 			$default = isset($_POST['default']) ? true : null;
-			$post = array_map(function($v){return Validate::cleanStr($v);}, $_POST);
+			$post = Validate::cleanArr($_POST);
 			$result = Admin::saveConfig($post, $default);
 			$res = isset($result) ? 'suc_service_change' : 'fail_service_change';
 		} elseif (isset($_POST['saveAdmin'])) {
 			require_once ROOT.'/config/AdminConfig.php';
-			$post = array_map(function($v){return Validate::cleanStr($v);}, $_POST);
+			$post = Validate::cleanArr($_POST);
 			$result = Admin::saveConfig($post, null, 'AdminConfig', 'config/AdminConfig.php');
 			$res = isset($result) ? 'suc_admin_change' : 'fail_admin_change';
 		} else {
@@ -91,7 +91,13 @@ class AdminController extends AdminBase
 	{
 		$listBanners = Banners::getBannersOnSite('rand');
 		$listReclama = Reclama::getReclamaOnSite('rand');
-		$listVideo = Video::getVideoOnSite('rand');
+		//формируем первое видео и список последующих видео
+		$videoList = Video::getVideoOnSite('rand');
+		if(!empty($videoList)) {
+			$video = $videoList[0];
+			unset($videoList[0]);
+			$playList = implode(',', $videoList);
+		}
 		require_once ROOT.'/'.Config::VIEW.'admin/page.php';
 		return true;
 	}

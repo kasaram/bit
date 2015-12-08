@@ -24,7 +24,7 @@ $r->run();
 
 
 /****************************************************************************/
-echo "<br/><br/>Изменен: ".date('d F Y H:i:s', getlastmod());
-$m = memory_get_usage()-$m;
-$t = microtime(true) - $t;
-echo '<br/>Память: '.$m.'<br/>Время: '.$t;
+//echo "<br/><br/>Изменен: ".date('d F Y H:i:s', getlastmod());
+//$m = memory_get_usage()-$m;
+//$t = microtime(true) - $t;
+//echo '<br/>Память: '.$m.'<br/>Время: '.$t;

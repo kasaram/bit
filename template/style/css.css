@@ -12,7 +12,7 @@ body { background-color: #444444; margin: 0; overflow: hidden; font-size: 14px; 
 #mainmenu > a:not(.active):hover { background-color: #485d6b; }
 #mainmenu > a.active { background-color: #497590; min-height: 40px; line-height: 40px; padding-left: 20px; cursor: pointer; }
 
-#content { background-color: #eee; float: left; width: calc(100% - 300px); height: 100vh; padding: 10px 30px; overflow: auto; }
+#content { background-color: #eee; float: left; width: calc(100% - 300px); height: calc(100vh - 30px); padding: 10px 30px; overflow: auto; }
 
 table { border-collapse: collapse; border-spacing: 0; border: 1px solid #eee; min-width: 600px; }
 table tr { min-height: 30px; line-height: 30px; }
@@ -52,3 +52,11 @@ a:hover{text-decoration: underline;}
 .adminLine {height: 30px; background: #fbc444; border-bottom: 2px solid #848484; text-align: right; padding-right: 20px;}
 .adminLine a { color:#fff; line-height: 28px; }
 .adminLine a:hover { text-decoration:none; text-shadow: 0px 0px 10px #D29916;}
+
+/*Сообщения об успехе или неудаче проведения операции*/
+.msgSuc {
+	color:#5cd212;
+}
+.msgFail {
+	color:#d21212;
+}

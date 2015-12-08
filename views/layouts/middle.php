@@ -1,7 +1,10 @@
 <?php
-
-defined('BIT') or die;
-
-echo '<br><br>Середина сайта, здесь располагаются баннеры<br>';
-print_r($listBanners);
-echo '<br/><br/><br/>';
+	defined('BIT') or die;
+?>
+<div class="content">
+  <div id="advertisments">
+  	<?php foreach($listBanners as $item) { ?>
+			<div><?=htmlspecialchars_decode($item['descr'])?></div>
+  	<?php } ?>
+  </div>
+</div>

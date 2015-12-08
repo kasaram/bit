@@ -12,11 +12,11 @@ class Contact
 	public static function sendMail($post)
 	{
 		//очищаем от лишнего и распаковываем массив переданных данных с формы
-		$postData = array_map(function($v){return Validate::cleanStr($v);}, $post);
+		$postData = Validate::cleanArr($post);
 		extract($postData);
 		//осуществляем проверки на корректное заполнение полей
-		if (empty($captcha) || strtoupper($captcha) != $_SESSION['captcha']) {
-			$msg = 'fail_capthca';
+		if (empty(Validate::checkCaptcha($captcha))) {
+			$msg = 'fail_captcha';
 		} elseif (empty($name) || empty($message)) {
 			$msg = 'fail_mail_field';
 		} elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {

@@ -20,8 +20,7 @@ class ContactController
 		$balance = isset($_SESSION['id']) ? Site::getBalance() : 0;
 		$bonus = isset($_SESSION['id']) ? $_SESSION['bonus'] : 0;
 		//если пришла форма, то обрабатываем ее и отправляем письмо
-		if(isset($_POST['submit'])) {
-			unset($_POST['submit']);
+		if(isset($_POST['email'])) {
 			$msg = Contact::sendMail($_POST);
 		}
 		require_once ROOT.'/'.Config::VIEW.'contact/index.php';

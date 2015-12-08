@@ -65,6 +65,10 @@ require_once ROOT.'/config/AdminConfig.php';
         <div><input  type="text" name="num_reclame" placeholder="<?=Config::NUM_RECLAME?>"></div>
       </div>
       <div>
+        <div>Текст для заставки видео в бонусной игре:</div>
+        <div><input type="text" name="video_text" placeholder="<?=Config::VIDEO_TEXT?>"></div>
+      </div>
+      <div>
         <div>Текст в подвале(футер) сайта:</div>
         <div><input type="text" name="footer_text" placeholder="<?=Config::FOOTER_TEXT?>"></div>
       </div>

@@ -89,7 +89,7 @@ class Games
         }
 			} else {
 				$class = $classClose;
-      	$val = '-----++++------';
+      	$val = '';
     	}
 			$databox[$i] = ['class'=>$class, 'val'=>$val];
 		}

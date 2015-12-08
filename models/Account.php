@@ -27,9 +27,12 @@ class Account
 			return false;
 			exit;
 		}else {
-			User::changeUser(['bitcoin'=>$bitcoin], $id);
-			$userData = User::getUser('bitcoin', $id);
-			return User::sessionUser($userData);
+			$result = User::changeUser(['bitcoin'=>$bitcoin], $id);
+			if(!empty($result)){
+				$userData = User::getUser('bitcoin', $id);
+				User::sessionUser($userData);
+			}
+			return $result;
 		}
 	}
 	

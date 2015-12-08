@@ -34,31 +34,19 @@ class SiteController
 	 */
 	public function actionClaim()
 	{
-		if((!empty($_SESSION['claimAmount']) || !empty($_SESSION['bonusMinutes'])) && empty($_SESSION['numChance'])) {
-			//если есть дневной бонус, то пересчитываем выигрыш за игру и складываем его с балансом
-			if(!empty($_SESSION['dailyBonus'])) {
-				$dailyBonus = floor(($_SESSION['claimAmount'] * $_SESSION['dailyBonus'])/100); 
-				$gameBalance = $_SESSION['claimAmount'] + $dailyBonus;
-			} else $gameBalance = $_SESSION['claimAmount'];
-			$balance = $_SESSION['balance'] + $gameBalance;
-			$bonus = $_SESSION['bonus'] + $_SESSION['bonusMinutes'];
-			$data = ['balance'=>$balance, 'bonus'=>$bonus];
-			$userId = $_SESSION['id'];
-			$res = User::changeUser($data, $userId);
-			if(!empty($res)) {
-				$_SESSION['balance'] = $balance;
-				$_SESSION['bonus'] = $bonus;
-				$_SESSION['claimAmount'] = 0;
-				$_SESSION['bonusMinutes'] = 0;
-				$_SESSION['claimAmountBefore'] = 0;
-				$_SESSION['bonusMinutesBefore'] = 0;
-			}
+		//проверка капчи
+		if(empty(Validate::checkCaptcha($_POST['captcha']))) $get = '?res=fail_captcha';
+		//условия для перевода денег и бонуса с временного выйгрыша в баланс
+		if((!empty($_SESSION['claimAmount']) || !empty($_SESSION['bonusMinutes'])) && (empty($_SESSION['numChance']) || $_SESSION['numChance'] == Config::NUM_CHANCE) && !isset($get)) {
+			//установливаем новые значени бонуса, баланса и др. у игрока
+			Site::setDataGame();
 			//если игрок был зарегин по реф ссылке, то процент от его выйгрыша идет рефереру
 			if (!empty($_SESSION['parentId'])) {
 				Refer::setRefBonus($gameBalance);
 			} 
+			$get = '';
 		}
-		header('Location: '.Config::ADDRESS);
+		header('Location: '.Config::ADDRESS.$get);
 	}
 
 	/**
@@ -91,7 +79,7 @@ class SiteController
 	public function actionLogin()
 	{
 		$res = '';
-		if(isset($_POST['submit']) && !empty(trim($_POST['bitcoin']))) {
+		if(isset($_POST['bitcoin']) && !empty(trim($_POST['bitcoin']))) {
 			$bitcoin = Validate::cleanStr($_POST['bitcoin']);
 			if(!Validate::checkBitcoin($bitcoin)) {
 				$res = '?res=fail_bit';

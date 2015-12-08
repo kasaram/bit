@@ -18,9 +18,11 @@ class AdminVideoController extends AdminBase
 		self::checkAdmin();
 		if(isset($_POST['submit'])) {
 			$title = Validate::cleanStr($_POST['title']);
-			$descr = htmlspecialchars($_POST['descr']);
+			$descr = Validate::cleanStr($_POST['descr']);
 			if(!empty($title) && !empty($descr)) {
-				$result = Video::addVideo(['title', 'descr', 'pubTime'], [$title, $descr, time()]);
+				//выбираем код видео из ссылки ютуб
+				preg_match('/(http)?s?:?\/\/(www)?\.?[a-zA-z0-9\.]*\/(embed\/)?(watch\?v=)?([a-zA-z0-9-\_]*)/', $descr, $video);
+				$result = Video::addVideo(['title', 'descr', 'pubTime'], [$title, $video[5], time()]);
 			}
 			$res = isset($result) ? 'suc_video_create' : 'fail_video_create';
 		} else $res = 'fail_video_create';

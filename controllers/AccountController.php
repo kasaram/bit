@@ -31,7 +31,7 @@ class AccountController
 	*/
 	public function actionBitcoin()
 	{
-		if(isset($_POST['submit']) && !empty(trim($_POST['bitcoin']))){
+		if(isset($_POST['bitcoin']) && !empty(trim($_POST['bitcoin']))){
 			$result = Account::changeBitcoin($_POST['bitcoin'], $_SESSION['id']);
 			$res = !empty($result) ? 'suc_bit_change' : 'fail_bit_change';
 		} else $res = 'fail_bit_change';

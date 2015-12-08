@@ -29,8 +29,9 @@
 		const REF_COMMISSION = "20";
 		const NUM_BANNERS = "6";
 		const NUM_RECLAME = "2";
-		const FOOTER_TEXT = "CBC Fond @ 2015";
-		const PAUSE_GAME = "1";
+		const FOOTER_TEXT = "CBC Fond &copy; 2015";
+		const PAUSE_GAME = "0.1";
+		const PAUSE_BONUS = "1";
 		const NUM_CHANCE = "10";
 		const NUM_WINS = "8";
 		const NUM_BONUSES = "2";
@@ -44,8 +45,7 @@
 		const AMOUNT_BONUS_2 = "1500";
 		const DAILY_BONUS = "1";
 		const MAX_DAILY_BONUS = "100";
-		const NUM_VIDEO = "4";
-		const TIME_VIDEO = "60";
+		const VIDEO_TEXT = "BITCOINFREE";
 		const BANNER_TOP = "Код для баннера сверху";
 		const BANNER_LEFT = "Код для баннера слева";
 		const BANNER_RIGHT = "Код для баннера справа";

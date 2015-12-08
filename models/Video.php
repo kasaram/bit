@@ -6,12 +6,17 @@ class Video
 	/**
 	 *  Статический метод для получения видео для сайта 
 	 * 	@param string|array $order Принимает строку или массив названия типа сортировки
-	 *  @return array Вернет массив данных рекламы
+	 *  @return array|bool Вернет массив данных рекламы либо false
 	 */
 	public static function getVideoOnSite($order)
 	{
 		$db = DB::getDB();
-		$videoList = $db->select(['id','title','descr'], 'video', ['publish'=>'='], $order, Config::NUM_VIDEO, 1);
+		$videoAll = $db->select(['descr'], 'video', ['publish'=>'='], $order, null, 1);
+		if(!empty($videoAll)){
+			for($i = 0; $i<count($videoAll); $i++) {
+				$videoList[] = $videoAll[$i]['descr'];
+			}
+		} else return false;
 		return $videoList;
 	}
 
