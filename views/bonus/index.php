@@ -34,7 +34,7 @@
 	          videoId: '<?=$video?>',
 	          playerVars: {
 	          	'iv_load_policy': 3,
-	          	'controls': 2,
+	          	'controls': 0,
 	          	'autoplay': 1,
 	          	'loop': 1,
 	          	'playlist': '<?=$playList?>',
@@ -78,7 +78,7 @@
 
 
 <?php require_once ROOT.'/'.Config::VIEW.'layouts/middle.php'; ?>
-
+<div class="content">
 	<?php //если у игрока есть временный выйгрыш то кнопка доступна
       if(!empty($amountBonus)) {
     ?>
@@ -105,5 +105,5 @@
     <?php } else { ?>
       <div id="takecoinsinactive">CLICK TO CLAIM</div>
     <?php } ?>
-
+</div>
 <?php	require_once ROOT.'/'.Config::VIEW.'layouts/footer.php'; ?>

@@ -88,6 +88,7 @@
   <?php //если игрок зашел, то отображаем ему кнопку CLICK TO CLAIM
     if(isset($_SESSION['id'])) { 
   ?>
+  <div class="content">
     <?php //если игрок сыграл игру или не начал ее и у него есть временный выйгрыш то кнопка доступна
       if(isset($_SESSION['numChance']) && ($_SESSION['numChance']==0 || $_SESSION['numChance']==Config::NUM_CHANCE) && $_SESSION['claimAmount']>0) {
     ?>
@@ -114,6 +115,7 @@
     <?php } else { ?>
       <div id="takecoinsinactive">CLICK TO CLAIM</div>
     <?php } ?>
+  </div>
   <?php } ?>
 	
 <?php require_once ROOT.'/'.Config::VIEW.'layouts/footer.php';?>

@@ -59,7 +59,12 @@ class BonusController
 
 	public function actionStart()
 	{
-		if(isset($_GET['clickStart'])){
+		//если время до следующей игры еще не прошло, то выводим текущий временый баланс
+		if (time() < $_SESSION['pauseBonus']) {
+			echo $_SESSION['amountBonus'].' '.Config::COIN;
+			exit;
+		}
+		if(isset($_GET['clickStart'])) {
 			//устанавливаем время до следующей игры
 			Bonus::setPauseBonus();
 			//Устанавливаем новое значение бонуса
