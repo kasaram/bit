@@ -95,16 +95,15 @@
               </div>
             </div>
             <div>
-              <div></div>
-              <div>
+              <div style='float:right;'>
                 <a href="javascript://" class="button" onclick="$('#captchaForm').submit()">SEND</a>
               </div>
             </div>
           </div>
         </form>
+        <div style="clear:both;"></div>
     <?php } else { ?>
       <div id="takecoinsinactive">CLICK TO CLAIM</div>
     <?php } ?>
-
 
 <?php	require_once ROOT.'/'.Config::VIEW.'layouts/footer.php'; ?>
