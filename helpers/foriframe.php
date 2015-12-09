@@ -23,8 +23,8 @@ define('BIT', true);
 		<?php //если время до следующей игры истекло выводим баннеры
 			if(time() > $_SESSION['pauseBonus']) {
 		?>
-		<div id="iframebanner1"><p><?=htmlspecialchars_decode($reclameList[0]['descr'])?></p></div>
-		<div id="iframebanner2"><p><?=htmlspecialchars_decode($reclameList[1]['descr'])?></p></div>
+		<p><?=htmlspecialchars_decode($reclameList[0]['descr'])?></p>
+		<p><?=htmlspecialchars_decode($reclameList[1]['descr'])?></p>
 		<?php } ?>
 	</body>
 </html>

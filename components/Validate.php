@@ -38,6 +38,32 @@ class Validate
 	}
 
 	/**
+	 * Статический метод для выборки кода видео ютуб из ссылки
+	 * @param string $link Принимает ютуб ссылку на видео, различного формата
+	 * @return string Вернет строку кода видео
+	 */
+	public static function cleanLinkYoutube($link)
+	{
+		$reg = '/(http)?s?:?\/\/(www)?\.?[a-zA-z0-9\.]*\/(embed\/)?(watch\?v=)?([a-zA-z0-9-\_]*)/';
+		preg_match($reg, $link, $videoCode);
+		return $videoCode[5];
+	}
+
+	/**
+	 * Статический метод для очистки кода баннеров и рекламы от атрибута target=_blank
+	 * @param string $code Принимает строку кода баннера или рекламы
+	 * @return string Вернет строку кода баннера или рекламы без target=_blank
+	 */
+	public static function cleanCode($code)
+	{
+		$reg = '/target\s*=\s*[\'\"]?\s*_blank\s*[\'\"]?/';
+		if(!empty(preg_match($reg, $code))) {
+			$code = preg_replace($reg, " ", $code);
+		}
+		return $code;
+	}
+
+	/**
 	 * Статический метод для очистки значений массива от тегов и лишних пробелов
 	 * @param array $arr Принимает массив, значения которого нужно очистить
 	 * @return type Вернет массив с валидными значениями

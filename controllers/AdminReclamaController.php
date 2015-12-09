@@ -23,7 +23,7 @@ class AdminReclamaController extends AdminBase
 		self::checkAdmin();
 		if(isset($_POST['submit'])) {
 			$title = Validate::cleanStr($_POST['title']);
-			$descr = htmlspecialchars($_POST['descr']);
+			$descr = htmlspecialchars(Validate::cleanCode($_POST['descr']));
 			if(!empty($title) && !empty($descr)) {
 				$result = Reclama::addReclama(['title', 'descr', 'pubTime'], [$title, $descr, time()]);
 			}
