@@ -57,7 +57,7 @@ class Site
     } else {
       $userId = User::getUserId($bitcoin);
     }
-    $userData = User::getUser(['id', 'bitcoin', 'parentId', 'regDate', 'nextVisit', 'withdraw','balance','lastPayOut','lastDateOut', 'bonus', 'dailyBonus', 'pauseGame', 'pauseBonus'], $userId);
+    $userData = User::getUser(['id', 'bitcoin', 'parentId', 'nextVisit', 'withdraw','balance','lastPayOut','lastDateOut', 'bonus', 'dailyBonus', 'pauseGame', 'pauseBonus'], $userId);
     return $userData;
   }
 

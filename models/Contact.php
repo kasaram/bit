@@ -15,10 +15,10 @@ class Contact
 		$postData = Validate::cleanArr($post);
 		extract($postData);
 		//осуществляем проверки на корректное заполнение полей
-		if (empty(Validate::checkCaptcha($captcha))) {
-			$msg = 'fail_captcha';
-		} elseif (empty($name) || empty($message)) {
+		if (empty($name) || empty($message)) {
 			$msg = 'fail_mail_field';
+		} elseif (empty(Validate::checkCaptcha($captcha))) {
+			$msg = 'fail_captcha';
 		} elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 			$msg = 'fail_mail';
 		} else {

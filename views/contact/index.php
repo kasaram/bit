@@ -4,12 +4,12 @@
 ?>
 <div class="content">
   <?php require_once ROOT.'/'.Config::VIEW.'layouts/banner.php';?>
+  <div class="title">Contact</div>
   <?php //выводим сообщение об ошибке или успехе проведения операции
     if(isset($msg) && !empty($msg)){ 
       echo Message::getMsg($msg);
     } 
   ?>
-  <div class="title">Contact</div>
     <form id="mailForm" action="<?=Config::ADDRESS?>contact" method="post">
       <div class="formtable">
         <div>

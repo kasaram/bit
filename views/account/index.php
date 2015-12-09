@@ -5,12 +5,12 @@
 
 <div class="content">
   <?php require_once ROOT.'/'.Config::VIEW.'layouts/banner.php';?>
+  <div class="title">Account</div>
   <?php //выводим сообщение об ошибке или успехе проведения операции
     if(isset($_GET['res']) && !empty($_GET['res'])){ 
       echo Message::getMsg($_GET['res']);
     } 
   ?>
-  <div class="title">Account</div>
   <form id="bitcoinForm" action="<?=Config::ADDRESS?>account/bitcoin" method="post">
   <div class="formtable">
     <div>
