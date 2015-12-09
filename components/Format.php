@@ -29,6 +29,6 @@ class Format
 	*/
 	public static function adminDate($date)
 	{
-		return date('d.m.Y H:i:s', $date);
+		return date('d.m.Y', $date);
 	}
 }

@@ -98,8 +98,6 @@ a.bag-opened { background: url("../images/bag-opened.png") no-repeat center cent
 #gamebtns > div { background-color: #aaa; border-radius: 5px; float: left; margin-left: 30px; width: 180px; height: 42px; line-height: 42px; font-size: 22px; color: white; text-align: center; text-decoration: none; }
 #gamebtns > div:first-child { margin-left: 0; }
 
-
-
 input:focus { outline: none; }
 
 input[type="text"], input[type="email"], textarea { border-radius: 5px; height: 30px; width: 100%; border: 1px solid #22222; padding: 0px 10px 0 10px; line-height: 30px; color: #22222; background-color: #ffffff; font-size: 16px; }
@@ -168,3 +166,5 @@ textarea { resize: vertical; min-height: 80px; max-height: 200px; }
 .refresh:hover{
 	color:#444;
 }
+
+.referBanners {margin-bottom:30px;text-align:center;width:810px;margin-left:210px;}

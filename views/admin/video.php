@@ -32,8 +32,8 @@ require_once ROOT.'/'.Config::VIEW.'layouts/admin.php';
     <tr>
       <td>Заголовок</td>
       <td>Содержимое</td>
-      <td>Дата публикации</td>
-      <td>Опубликовано</td>
+      <td>Создано</td>
+      <td>Активно</td>
       <td>Удаление</td>
     </tr>
   <?php 

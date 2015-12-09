@@ -56,8 +56,9 @@ require_once ROOT.'/'.Config::VIEW.'layouts/admin.php';
   <table border=1>
     <tr>
       <td>Заголовок</td>
-      <td>Дата публикации</td>
-      <td>Опубликовано</td>
+      <td>Содержимое</td>
+      <td>Создано</td>
+      <td>Активно</td>
       <td>Удаление</td>
     </tr>
   <?php 
@@ -66,6 +67,7 @@ require_once ROOT.'/'.Config::VIEW.'layouts/admin.php';
     ?>
       <tr>
         <td><?=$item['title']?></td>
+        <td><?=htmlspecialchars_decode($item['descr'])?></td>
         <td><?=Format::adminDate($item['pubTime'])?></td>
         <td>
           <form action="<?=Config::ADDRESS?>admin/banners/update/<?=$item['id'];?>" method="post">
