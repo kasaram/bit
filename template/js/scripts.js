@@ -31,3 +31,14 @@ $(window).load(function () {
   }
   });
 });
+
+
+
+//проверка на Addblock
+  function checkAdb() {
+    if($('#ad-detect').css('display') == 'none'){
+      $('.content').html('');
+      $('.content:eq(0)').html('<div style="text-align:center; font-weight:bold;"><h2>Please, disable a program that blocks ads, and reload the page!<h2/><a href="/">RELOAD THE PAGE</a></div>');
+    }
+  }
+  setTimeout("checkAdb()", 2000);

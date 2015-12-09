@@ -44,16 +44,6 @@
   </style>
 </head>
 <body>
-<script>
-  //проверка на Addblock
-  function checkAdb() {
-    if($('#ad-detect').css('display') == 'none'){
-      $('.content').html('');
-      $('.content:eq(0)').html('<div style="text-align:center; font-weight:bold;"><h2>Please, disable a program that blocks ads, and reload the page!<h2/><a href="/">RELOAD THE PAGE</a></div>');
-    }
-  }
-  setTimeout("checkAdb()", 2000);
-</script>
 
 <img id="ad-detect" style="position:absolute;left:-9999px;" class="ads banner" src="<?=Config::ADDRESS.Config::TEMPLATE?>images/ads/banner.png"/>
 

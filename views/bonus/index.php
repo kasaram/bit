@@ -34,7 +34,7 @@
 	          videoId: '<?=$video?>',
 	          playerVars: {
 	          	'iv_load_policy': 3,
-	          	'controls': 0,
+	          	'controls': 2,
 	          	'autoplay': 1,
 	          	'loop': 1,
 	          	'playlist': '<?=$playList?>',
