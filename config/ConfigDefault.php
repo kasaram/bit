@@ -28,8 +28,8 @@ class ConfigDefault
 	const COIN = "Satoshi";
 	const SUM_AMOUNT = "5000000";
 	const REF_COMMISSION = "20";
-	const NUM_BANNERS = "6";
-	const NUM_RECLAME = "2";
+	const NUM_BANNERS = "9";
+	const NUM_RECLAME = "5";
 	const FOOTER_TEXT = "ICBC Fond &copy; 2015";
 	const PAUSE_GAME = "5";
 	const PAUSE_BONUS = "1";

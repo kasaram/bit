@@ -17,14 +17,19 @@ define('BIT', true);
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title><?=Config::SITE_NAME?></title>
 		<link rel="stylesheet" type="text/css" href="/template/style/site.css">
+		<style type="text/css">
+			body{text-align: center;}
+		</style>
 	</head>
 	<body>
 		<span id="iframetitle"><?=$text?></span>
 		<?php //если время до следующей игры истекло выводим баннеры
 			if(time() > $_SESSION['pauseBonus']) {
-		?>
-		<p><?=htmlspecialchars_decode($reclameList[0]['descr'])?></p>
-		<p><?=htmlspecialchars_decode($reclameList[1]['descr'])?></p>
-		<?php } ?>
+				//выводим то количество баннеров, которое задано в админке
+				for($i=0; $i < Config::NUM_RECLAME; $i++) {		
+			?>
+					<p><?=htmlspecialchars_decode($reclameList[$i]['descr'])?></p>
+		<?php }
+			} ?>
 	</body>
 </html>
