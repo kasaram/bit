@@ -23,7 +23,7 @@ class Banners
 	public static function getBannersOnAdmin($order)
 	{
 		$db = DB::getDB();
-		$listBanners = $db->select(['id','title', 'descr', 'pubTime', 'publish'], 'banners', null, $order, null, 1);
+		$listBanners = $db->select(['id','title', 'pubTime', 'publish'], 'banners', null, $order, null, 1);
 		return $listBanners;
 	}
 

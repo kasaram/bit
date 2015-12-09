@@ -44,7 +44,7 @@ a.logo { float: left; height: 60px; width: 240px; background: url("../images/log
 .logout:hover #power { fill: #777777; }
 
 #advertisments div { float: left; margin-left: 30px; margin-bottom: 30px; width: 390px; min-height: 20px; text-align: center; }
-#advertisments div:nth-child(3n+1), #advertisments div:first-child { margin-left: 0; }
+#advertisments div:nth-child(3n+1), #advertisments div:first-child { margin-left: 0; clear:left;}
 
 #advertisments:after { content: ""; display: table; clear: both; }
 
