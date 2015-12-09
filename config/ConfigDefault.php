@@ -1,7 +1,7 @@
 <?php
 class ConfigDefault
 {
-	const SITE_NAME = "Биткоин проект";
+	const SITE_NAME = "Faucet BTC";
 	const ADDRESS = "http://bit.loc/";
 	const ADM_EMAIL = "echmaster@mail.ru";
 	const SECRET = "master";
@@ -26,11 +26,11 @@ class ConfigDefault
 	const BORDER_RADIUS = "5";
 	const LOGO = "images/logo.png";
 	const COIN = "Satoshi";
-	const SUM_AMOUNT = "5000";
+	const SUM_AMOUNT = "5000000";
 	const REF_COMMISSION = "20";
 	const NUM_BANNERS = "6";
 	const NUM_RECLAME = "2";
-	const FOOTER_TEXT = "CBC Fond &copy; 2015";
+	const FOOTER_TEXT = "ICBC Fond &copy; 2015";
 	const PAUSE_GAME = "5";
 	const PAUSE_BONUS = "1";
 	const NUM_CHANCE = "10";

@@ -31,7 +31,6 @@ require_once ROOT.'/'.Config::VIEW.'layouts/admin.php';
   <table border=1>
     <tr>
       <td>Заголовок</td>
-      <td>Содержимое</td>
       <td>Дата публикации</td>
       <td>Опубликовано</td>
       <td>Удаление</td>
@@ -41,7 +40,6 @@ require_once ROOT.'/'.Config::VIEW.'layouts/admin.php';
     foreach ($listReclama as $item) { ?>
     <tr>
       <td><?=$item['title']?></td>
-      <td><?=htmlspecialchars($item['descr'])?></td>
       <td><?=Format::adminDate($item['pubTime'])?></td>
       <td>
         <form action="<?=Config::ADDRESS?>admin/reclama/update/<?=$item['id'];?>" method="post">
