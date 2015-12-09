@@ -1,5 +1,4 @@
 <?php
-
 defined('BIT') or die;
 
 class Message
@@ -26,15 +25,12 @@ class Message
     	$getParam = strtoupper($getParam);
 
       if (key_exists($getParam, $msg['SUCCESS'])) {
-        //$style = 'color:#5cd212;';
         $class = 'msgSuc';
         $text = $msg['SUCCESS'][$getParam];
       } else if (key_exists($getParam, $msg['FAIL'])) { 
-        //$style = 'color:#d21212;';
         $class = 'msgFail';
         $text = $msg['FAIL'][$getParam];
       } else return false;
 			return '<p class="'.$class.'">'.$text.'</p>';
 	}
-
 }

@@ -1,1 +1,0 @@
-08/12/15 22:39:47||Код: HY093||Сообщение: SQLSTATE[HY093]: Invalid parameter number: no parameters were bound||Линия: 75||Файл: D:\OpenServer\OpenServer\domains\bit.loc\components\DB.php

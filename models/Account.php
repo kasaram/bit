@@ -3,7 +3,6 @@ defined('BIT') or die;
 
 class Account
 {
-
 	/**
 	 * Статический метод для получения данных последнего платежа
 	 * @return array Вернет массив содержащий данные последнего платежа
@@ -49,6 +48,4 @@ class Account
 		$userData = User::getUser('withdraw', $id);
 		return User::sessionUser($userData);
 	}
-
-
 }

@@ -1,10 +1,11 @@
 <?php
-
 defined('BIT') or die;
 
 class AdminVideoController extends AdminBase
 {
-	
+	/**
+	 * Отображает страницу видео для админки
+	 */
 	public function actionIndex()
 	{
 		self::checkAdmin();
@@ -13,6 +14,9 @@ class AdminVideoController extends AdminBase
 		return true;
 	}
 
+	/**
+	 * Создает новое видео 
+	 */
 	public function actionCreate()
 	{
 		self::checkAdmin();
@@ -29,6 +33,9 @@ class AdminVideoController extends AdminBase
 		header('Location:'.Config::ADDRESS.'admin/video/?res='.$res);
 	}
 
+	/**
+	 * Обновляет статус нового видео
+	 */
 	public function actionUpdate($id)
 	{
 		self::checkAdmin();
@@ -40,6 +47,9 @@ class AdminVideoController extends AdminBase
 		header('Location:'.Config::ADDRESS.'admin/video/?res='.$res);
 	}
 
+	/**
+	 * Удаляет указанное видео
+	 */
 	public function actionDelete($id)
 	{
 		self::checkAdmin();
@@ -49,6 +59,4 @@ class AdminVideoController extends AdminBase
 		} else $res = 'fail_video_delete';
 		header('Location:'.Config::ADDRESS.'admin/video/?res='.$res);
 	}
-
-
 }

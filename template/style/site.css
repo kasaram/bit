@@ -149,8 +149,6 @@ textarea { resize: vertical; min-height: 80px; max-height: 200px; }
 
 #iframebanner2 { float: left; margin-left: 30px; width: calc(50% - 15px); min-height: 100px; text-align: center;  }
 
-
-
 /*Сообщения об успехе или неудаче проведения операции*/
 .msgSuc {
 	color:#5cd212;

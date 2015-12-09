@@ -1,5 +1,4 @@
 <?php
-
 defined('BIT') or die;
 
 class FaqController

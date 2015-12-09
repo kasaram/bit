@@ -1,11 +1,16 @@
 <?php
+defined('BIT') or die;
+
 class Router
 {
 	/*
 	* @var array Массив, в котором хранятся маршруты
 	*/
 	private $routes;
-
+	/**
+	 * Конструктор в котором подключаем файл конфигураций роутинга
+	 * @return void
+	 */
 	public function __construct()
 	{
 		$routesPath=ROOT.'/config/Routes.php';
@@ -13,8 +18,7 @@ class Router
 	}
 
 	/**
-	 *   Метод получения строки запроса
-	 *
+	 *  Метод получения строки запроса
 	 *  @return string Возвращает строку запроса
 	 */
 	private function getURI()
@@ -25,8 +29,7 @@ class Router
 	}
 
 	/**
-	 *   Метод принимающий управление от фронт контроллера
-	 *
+	 *  Метод принимающий управление от фронт контроллера
 	 *  @return void
 	 */
 	public function run()

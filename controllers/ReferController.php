@@ -1,10 +1,8 @@
 <?php
-
 defined('BIT') or die;
 
 class ReferController
 {
-
 	/**
 	 *	Отображает страницу Refer
 	*/

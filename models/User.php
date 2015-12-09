@@ -3,7 +3,6 @@ defined('BIT') or die;
 
 class User
 {
-
 	/**
 	 *  Статический метод для получения данных из таблицы пльзователей
 	 *	@param	string|array $data Указываем строку или массив полей, данные для которых необходимо извлечь
@@ -83,5 +82,4 @@ class User
 			return true;
 		} else return false;
 	}
-
 }

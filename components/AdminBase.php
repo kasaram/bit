@@ -1,9 +1,13 @@
 <?php
-
 defined('BIT') or die;
 
 abstract class AdminBase
 {
+
+	/**
+	 * Статический метод для проверки залогинен ли администратор
+	 * @return void
+	 */
 	public static function checkAdmin()
 	{
 		if(session_status() !== PHP_SESSION_ACTIVE) session_start();

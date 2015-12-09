@@ -10,16 +10,12 @@ function countdowner(el, sec) {
   setInterval(this.tick, 1000);
 }
 
-
-
 $(document).on('click','#takecoins',function(){
 $('#takecoins').hide();
 $('#claimcaptchaform').show();
 });
 
-
 function scrolldown() {$('html, body').stop().animate({scrollTop:($('#footer').offset().top)}, 1000);}
-
 
 // FOR IFRAME
 $(window).load(function () {
@@ -31,8 +27,6 @@ $(window).load(function () {
   }
   });
 });
-
-
 
 //проверка на Addblock
   function checkAdb() {

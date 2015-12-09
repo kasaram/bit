@@ -1,10 +1,12 @@
 <?php
-
 defined('BIT') or die;
 
 class AdminReclamaController extends AdminBase
 {
 	
+	/**
+	 * Отображает страницу рекламы для админки
+	 */
 	public function actionIndex()
 	{
 		self::checkAdmin();
@@ -13,6 +15,9 @@ class AdminReclamaController extends AdminBase
 		return true;
 	}
 
+	/**
+	 * Создает рекламу 
+	 */
 	public function actionCreate()
 	{
 		self::checkAdmin();
@@ -27,6 +32,9 @@ class AdminReclamaController extends AdminBase
 		header('Location:'.Config::ADDRESS.'admin/reclama/?res='.$res);
 	}
 
+	/**
+	 * Обновляет статус рекламы
+	 */
 	public function actionUpdate($id)
 	{
 		self::checkAdmin();
@@ -38,6 +46,9 @@ class AdminReclamaController extends AdminBase
 		header('Location:'.Config::ADDRESS.'admin/reclama/?res='.$res);
 	}
 
+	/**
+	 * Удаляет указанную рекламу
+	 */
 	public function actionDelete($id)
 	{
 		self::checkAdmin();
@@ -47,6 +58,4 @@ class AdminReclamaController extends AdminBase
 		} else $res = 'fail_reclama_delete';
 		header('Location:'.Config::ADDRESS.'admin/reclama/?res='.$res);
 	}
-
-
 }

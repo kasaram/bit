@@ -1,5 +1,4 @@
 <?php
-
 defined('BIT') or die;
 
 class Logger
@@ -8,15 +7,16 @@ class Logger
 	* @var object Статическая переменная для создания объекта относительно шаблона одиночки
 	*/
 	private static $log = null;
-
+	/**
+	 * Закрываем магический методы клонирования, сериализации, ансериализации и конструктор
+	 */
 	private function __clone(){}
 	private function __wakeup(){}
 	private function __sleep(){}
 	private function __construct(){}
 
 	/**
-	 *	 Статический метод для создания объекта с помощью шаблона одиночки
-	 *
+	 *	Статический метод для создания объекта с помощью шаблона одиночки
 	 *  @return object Вернет объект класса Logger
 	 */
 	public static function getLog()
@@ -28,8 +28,7 @@ class Logger
 	}
 
 	/**
-	 *   Метод для записи логов
-	 *
+	 *  Метод для записи логов
 	 *  @param object $e Объект класса Exception
 	 *  @return bool Вернет истину если файл запишется
 	 */
@@ -46,8 +45,7 @@ class Logger
 	}
 
 	/**
-	 *   Считывает файл логов
-	 *
+	 *  Считывает файл логов
 	 *  @param string $path Путь до файла логов
 	 *  @return array Вернет массив логов
 	 */
@@ -62,4 +60,3 @@ class Logger
 	}
 
 }
-?>

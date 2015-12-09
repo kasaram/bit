@@ -1,5 +1,4 @@
 <?php
-
 defined('BIT') or die;
 
 class BonusController
@@ -45,6 +44,9 @@ class BonusController
 		return true;
 	}
 
+	/**
+	 * Устанавливает баланс в бонусной игре
+	 */
 	public function actionClaim() 
 	{
 		if(isset($_POST['captcha']) && empty(Validate::checkCaptcha($_POST['captcha']))) {
@@ -57,6 +59,9 @@ class BonusController
 		header('Location: '.Config::ADDRESS.'bonus'.$get);		
 	}
 
+	/**
+	 * Запускает бонусную игру
+	 */
 	public function actionStart()
 	{
 		//если время до следующей игры еще не прошло, то выводим текущий временый баланс

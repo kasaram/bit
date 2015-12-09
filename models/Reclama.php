@@ -64,5 +64,4 @@ class Reclama
 		$db = DB::getDb();
 		return $db->update('reclama', 'publish', ['id'=>'='], $params);
 	}
-
 }

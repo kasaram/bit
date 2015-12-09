@@ -1,10 +1,11 @@
 <?php
-
 defined('BIT') or die;
 
 class AdminController extends AdminBase
 {
-
+	/**
+	 * Отображает страницу админки
+	 */
 	public function actionIndex()
 	{
 		require_once 'config/AdminConfig.php';
@@ -12,6 +13,9 @@ class AdminController extends AdminBase
 		return true;
 	}
 
+	/**
+	 * Производит вход в админку
+	 */
 	public function actionLogin()
 	{	
 		if (isset($_POST['authSubmit'])) {
@@ -24,6 +28,9 @@ class AdminController extends AdminBase
 		header('Location: '.Config::ADDRESS.'admin'.$res);
 	}
 
+	/**
+	 * Производит выход из админки
+	 */
 	public function actionLogout()
 	{
 		if(session_status() !== PHP_SESSION_ACTIVE) session_start();
@@ -37,7 +44,9 @@ class AdminController extends AdminBase
 		header('Location: '.Config::ADDRESS);
 	}
 
-
+	/**
+	 * Отображает настройки игры в админке, а так же позволяет их менять
+	 */
 	public function actionGame()
 	{
 		self::checkAdmin();
@@ -52,6 +61,9 @@ class AdminController extends AdminBase
 		return true;
 	}
 
+	/**
+	 * Отображает настройки дизайна в админке, а так же позволяет их менять
+	 */
 	public function actionDesign()
 	{
 		self::checkAdmin();
@@ -66,6 +78,9 @@ class AdminController extends AdminBase
 		return true;
 	}
 
+	/**
+	 * Отображает общие настройки в админке, а так же позволяет их менять
+	*/
 	public function actionService()
 	{
 		self::checkAdmin();
@@ -87,6 +102,9 @@ class AdminController extends AdminBase
 		header('Location:'.Config::ADDRESS.'admin/service/?res='.$res);
 	}
 
+	/**
+	 * Отображает страницу, на которую скидывается вся реклама, страница перегружается каждую минуту
+	 */
 	public function actionPage()
 	{
 		$listBanners = Banners::getBannersOnSite('rand');
@@ -101,6 +119,4 @@ class AdminController extends AdminBase
 		require_once ROOT.'/'.Config::VIEW.'admin/page.php';
 		return true;
 	}
-
-
 }

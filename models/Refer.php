@@ -3,7 +3,6 @@ defined('BIT') or die;
 
 class Refer
 {
-
 	/**
 	 * Статический метод для получения количества рефералов
 	 * @return int Вернет число рефералов
@@ -41,5 +40,4 @@ class Refer
       return User::changeUser(['balance'=>$balance, 'refBonus'=>$refBonus], $userId);
     }
   }
-
 }

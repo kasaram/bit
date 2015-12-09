@@ -3,7 +3,6 @@ defined('BIT') or die;
 
 class Admin
 {
-
 	/**
  	 * Статический метод, который сохраняет новые конфигурации в файл
  	 * @param array $post Принимает массив данных новых конфигураций
@@ -51,6 +50,4 @@ class Admin
 			return true;
 		} else return false;
 	}
-
-
 }

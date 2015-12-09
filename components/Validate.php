@@ -1,10 +1,8 @@
 <?php
-
 defined('BIT') or die;
 
 class Validate
 {
-
 	/**
 	 * Статический метод для проверки правильного ввода капчи
 	 * @param string $captcha Принимает строку капчи 
@@ -69,5 +67,4 @@ class Validate
 	{
 		return abs((int)$par);
 	}
-
 }

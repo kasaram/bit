@@ -1,10 +1,11 @@
 <?php
-
 defined('BIT') or die;
 
 class AdminBannersController extends AdminBase
 {
-
+	/**
+	 * Отображает страницу баннеров для админки
+	 */
 	public function actionIndex()
 	{
 		self::checkAdmin();
@@ -13,6 +14,9 @@ class AdminBannersController extends AdminBase
 		return true;
 	}
 
+	/**
+	 * Создает баннер и возвращает на страницу баннеров с сообщением о результате
+	 */
 	public function actionCreate()
 	{
 		self::checkAdmin();
@@ -27,6 +31,9 @@ class AdminBannersController extends AdminBase
 		header('Location:'.Config::ADDRESS.'admin/banners/?res='.$res);
 	}
 
+	/**
+	 * Обновляет статут баннера и возвращает на страницу баннеров с сообщением о результате
+	 */
 	public function actionUpdate($id)
 	{
 		self::checkAdmin();
@@ -38,6 +45,9 @@ class AdminBannersController extends AdminBase
 		header('Location:'.Config::ADDRESS.'admin/banners/?res='.$res);
 	}
 
+	/**
+	 * Удаляет баннер и возвращает на страницу баннеров с сообщением о результате
+	 */
 	public function actionDelete($id)
 	{
 		self::checkAdmin();
@@ -48,6 +58,10 @@ class AdminBannersController extends AdminBase
 		header('Location:'.Config::ADDRESS.'admin/banners/?res='.$res);
 	}
 
+	/**
+	 * Добавляет статические баннеры слева, сверху и справа и возвращает на страницу баннеров с
+	 * сообщением о результате
+	 */
 	public function actionAdd()
 	{
 		self::checkAdmin();
@@ -61,6 +75,4 @@ class AdminBannersController extends AdminBase
 		require_once ROOT.'/'.Config::VIEW.'admin/banners.php';
 		return true;
 	}
-
-
 }

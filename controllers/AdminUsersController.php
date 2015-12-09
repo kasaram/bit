@@ -1,10 +1,12 @@
 <?php
-
 defined('BIT') or die;
 
 class AdminUsersController extends AdminBase
 {
-
+	/**
+	 * Отображает игроков, у которых достигнута значение денег для снятия и которые указали у 
+	 * себя в настройках авто снятие платежа
+	 */
 	public function actionIndex()
 	{
 		self::checkAdmin();
@@ -13,6 +15,9 @@ class AdminUsersController extends AdminBase
 		return true;
 	}
 
+	/**
+	 * Производит обнуление баланса у игрока
+	 */
 	public function actionUpdate($id, $balance)
 	{
 		self::checkAdmin();

@@ -4,7 +4,7 @@ defined('BIT') or die;
 class Banners
 {
 	/**
-	 *  Метод для получения данных из таблицы banners
+	 *  Статический метод для получения данных из таблицы banners
 	 * 	@param string|array $order Принимает строку или массив названия типа сортировки
 	 *  @return array Вернет массив случайных значений банеров
 	 */
@@ -16,7 +16,7 @@ class Banners
 	}
 
 	/**
-	 *  Метод для получения данных из таблицы banners
+	 *  Статический метод для получения данных из таблицы banners
 	 * 	@param string|array $order Принимает строку или массив названия типа сортировки
 	 *  @return array Вернет массив случайных значений банеров
 	 */
@@ -64,5 +64,4 @@ class Banners
 		$db = DB::getDb();
 		return $db->update('banners', 'publish', ['id'=>'='], $params);
 	}
-
 }

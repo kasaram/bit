@@ -1,10 +1,8 @@
 <?php
-
 defined('BIT') or die;
 
 class ContactController
 {
-
 	/**
  	 * Отоюражает и обрабатывает страницу Contact
 	 */
@@ -26,5 +24,4 @@ class ContactController
 		require_once ROOT.'/'.Config::VIEW.'contact/index.php';
 		return true;
 	}
-
 }
