@@ -18,6 +18,7 @@
 		const DB_PREFIX = "asdf_";
 		const COLOR_BG = "#ffffff";
 		const COLOR_TEXT = "#222222";
+		const COLOR_TEXT_HOVER = "#777777";
 		const COLOR_SECOND = "#ffc600";
 		const COLOR_BUTTON_BG = "#74bb0f";
 		const COLOR_BUTTON_TEXT = "#ffffff";
@@ -27,10 +28,10 @@
 		const COIN = "Satoshi";
 		const SUM_AMOUNT = "5000";
 		const REF_COMMISSION = "20";
-		const NUM_BANNERS = "6";
+		const NUM_BANNERS = "9";
 		const NUM_RECLAME = "2";
 		const FOOTER_TEXT = "CBC Fond &copy; 2015";
-		const PAUSE_GAME = "0.1";
+		const PAUSE_GAME = "1";
 		const PAUSE_BONUS = "1";
 		const NUM_CHANCE = "10";
 		const NUM_WINS = "8";

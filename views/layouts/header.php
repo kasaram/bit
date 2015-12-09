@@ -6,9 +6,42 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title><?=Config::SITE_NAME?></title>
+  <link href="<?=Config::ADDRESS.Config::TEMPLATE?>images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
   <link rel="stylesheet" type="text/css" href="<?=Config::ADDRESS.Config::TEMPLATE?>style/site.css">
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
   <script src="<?=Config::ADDRESS.Config::TEMPLATE?>/js/scripts.js"></script>
+  
+  <style type="text/css">
+    body, #gamelock, input[type="text"], textarea, #withoutvideo {
+      background-color: <?=Config::COLOR_BG?>;
+    }
+    a.logo{
+      background: url("/template/<?=Config::LOGO?>") no-repeat center center;
+    }
+    #footer, .menu, #gamepanel > div, #bonusacts > div { 
+      background-color:<?=Config::COLOR_SECOND?>;
+    }
+    body, .menulinks a, #gamepanel > div, input[type="text"], textarea, input[type="text"]:hover, textarea:hover, input[type="text"]:focus, textarea:focus, #withoutvideo {
+      color :<?=Config::COLOR_TEXT?>;
+    }
+    #power { fill: <?=Config::COLOR_TEXT?>; }
+    input[type="text"], input[type="email"], textarea {border: 1px solid <?=Config::COLOR_TEXT?>;}
+    .menulinks a:hover { color: <?=Config::COLOR_TEXT_HOVER?>; }
+    .toppanels, #topbonus, #topmoney, input[type="text"]:hover, input[type="email"]:hover, textarea:hover, input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+      border: 1px solid <?=Config::COLOR_TEXT_HOVER?>;
+    }
+    .logout:hover #power { fill: <?=Config::COLOR_TEXT_HOVER?>; }
+    a#takecoins, #gamebtns > a, #valletdiv a, #bonusacts > a, .button { 
+      color: <?=Config::COLOR_BUTTON_TEXT?>;
+      background-color:<?=Config::COLOR_BUTTON_BG?>;
+    }
+    a#takecoins:hover, #gamebtns > a:hover, #valletdiv a:hover, #bonusacts > a:hover, .button:hover {
+      background-color:<?=Config::COLOR_BUTTON_HOVER_BG?>;
+    }
+    #footer, .menu, a.logo, .menulinks a, .toppanels, #topbonus, #topmoney, a#takecoins, #takecoinsinactive, #gamepanel > div, #gamebtns > a, #gamebtns > div, #valletdiv a, input[type="text"], input[type="email"], textarea, #bonusacts > div, #bonusacts > a, .button {
+      border-radius:<?=Config::BORDER_RADIUS?>px;
+    }
+  </style>
 </head>
 <body>
 
@@ -37,12 +70,12 @@
         </div>
       <?php } else { ?>
         <form id="enterForm" action="login" method="post">
-          <div class="valletform">
+          <div class="walletform">
             <div>
               <?php if (isset($_GET['ref']) && !empty($_GET['ref'])) { ?>
                 <input type="hidden" name="ref" value="<?=$_GET['ref']?>">
               <?php } ?>
-              <input id="vallet" type="text" name="bitcoin">
+              <input id="wallet" type="text" name="bitcoin">
             </div>
             <div>
               <a href="javascript://" onclick="$('#enterForm').submit()" class="button">ENTER</a>

@@ -24,11 +24,11 @@ class Contact
 		} else {
 			//формируем и отправляем письмо
 			$adminEmail = Config::ADM_EMAIL;
-			$message = 'Имя: '.$name.'<br/>E-mail: '.$email.'<br/>Сообщение: '.$message;
+			$message = "Имя: ".$name."\nE-mail: ".$email."\nСообщение: ".$message;
 			$subject = 'Сообщение с сайат '.Config::SITE_NAME;
 			$subject = '=?unf-8?B?'.base64_encode($subject).'?=';
 			$headers = 'Contet-type: text/html; charset=utf-8';
-			$result = mail($adminEmail, $subject, $message);
+			$result = mail($adminEmail, $subject, $message, $headers);
 			$msg = !empty($result) ? 'suc_mail_send' : 'fail_mail_send';
 		}
 		return $msg;

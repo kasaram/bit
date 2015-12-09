@@ -60,10 +60,12 @@ require_once ROOT.'/config/AdminConfig.php';
         <div>Количество отображаемых баннеров:</div>
         <div><input  type="text" name="num_banners" placeholder="<?=Config::NUM_BANNERS?>"></div>
       </div>
+<!--      
       <div>
         <div>Количество рекламы на странице бонусы:</div>
         <div><input  type="text" name="num_reclame" placeholder="<?=Config::NUM_RECLAME?>"></div>
       </div>
+-->
       <div>
         <div>Текст для заставки видео в бонусной игре:</div>
         <div><input type="text" name="video_text" placeholder="<?=Config::VIDEO_TEXT?>"></div>

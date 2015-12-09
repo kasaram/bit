@@ -18,6 +18,7 @@ class ConfigDefault
 	const DB_PREFIX = "asdf_";
 	const COLOR_BG = "#ffffff";
 	const COLOR_TEXT = "#222222";
+	const COLOR_TEXT_HOVER = "#777777";
 	const COLOR_SECOND = "#ffc600";
 	const COLOR_BUTTON_BG = "#74bb0f";
 	const COLOR_BUTTON_TEXT = "#ffffff";

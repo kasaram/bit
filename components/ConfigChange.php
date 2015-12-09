@@ -25,7 +25,7 @@ public static function getConfig($configClass = 'Config')
  *  @param string $path Путь до файла конфигураций, который нужно переписать
  *  @return bool Вернет булево значение, в зависимости от того будут ли установленны новые конфигурации
  */
-public static function setConfig($arrConfig, $configClass = 'Config', $path = 'config/config.php')
+public static function setConfig($arrConfig, $configClass = 'Config', $path = 'config/Config.php')
 {
 	if(is_array($arrConfig)){
 		$arrConst = self::getConfig($configClass);

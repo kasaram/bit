@@ -9,7 +9,7 @@ define('BIT', true);
 	//получаем рекламу
 	$reclameList = Reclama::getReclamaOnSite('rand');
 
-	$text = time() < $_SESSION['pauseBonus'] ? "Please wait..." : "Click on a banner and benefit from <?=Config::AMOUNT_BONUS_1?> to <?=Config::AMOUNT_BONUS_2.' '.Config::COIN?>";
+	$text = time() < $_SESSION['pauseBonus'] ? "Please wait..." : 'Click on a banner and benefit from '.Config::AMOUNT_BONUS_1.' to '.Config::AMOUNT_BONUS_2.' '.Config::COIN;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,8 +23,8 @@ define('BIT', true);
 		<?php //если время до следующей игры истекло выводим баннеры
 			if(time() > $_SESSION['pauseBonus']) {
 		?>
-			<div id="iframebanner1"><?=htmlspecialchars_decode($reclameList[0]['descr'])?></div>
-			<div id="iframebanner2"><?=htmlspecialchars_decode($reclameList[1]['descr'])?></div>
+		<div id="iframebanner1"><p><?=htmlspecialchars_decode($reclameList[0]['descr'])?></p></div>
+		<div id="iframebanner2"><p><?=htmlspecialchars_decode($reclameList[1]['descr'])?></p></div>
 		<?php } ?>
 	</body>
 </html>

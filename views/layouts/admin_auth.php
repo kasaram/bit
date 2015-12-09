@@ -6,6 +6,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>Админ панель <?=Config::SITE_NAME?></title>
+	<link href="<?=Config::ADDRESS.Config::TEMPLATE?>images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 	<link rel="stylesheet" type="text/css" href="<?=Config::ADDRESS.Config::TEMPLATE?>style/admin_auth.css">
 </head>
 <body>

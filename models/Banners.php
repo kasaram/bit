@@ -35,7 +35,7 @@ class Banners
 	 */
 	public static function addBanner($data, $params)
 	{
-		$db = Db::getDB();
+		$db = DB::getDB();
 		return $db->insert('banners', $data, $params);
 	}
 

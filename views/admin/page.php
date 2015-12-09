@@ -27,6 +27,8 @@
       </div>
     </div>
 
+<?php require_once ROOT.'/'.Config::VIEW.'layouts/banner.php';?>
+
 	<div class="content">
   <div id="advertisments">
     <?php foreach($listReclama as $item) { ?>

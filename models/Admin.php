@@ -13,7 +13,7 @@ class Admin
 	 * @param string $path Путь до файла конфигураций, который нужно переписать
  	 * @return bool Вернет булево значени в зависимости от того удалось ли переписать конфигурационный файл
 	*/
-	public static function saveConfig($post, $default=null, $configClass = 'Config', $path = 'config/config.php')
+	public static function saveConfig($post, $default=null, $configClass = 'Config', $path = 'config/Config.php')
 	{
 		//удаляем последний элемент массива - ключ и значение кнопки отправки
 		array_pop($post);

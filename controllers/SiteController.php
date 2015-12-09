@@ -39,7 +39,7 @@ class SiteController
 		//условия для перевода денег и бонуса с временного выйгрыша в баланс
 		if((!empty($_SESSION['claimAmount']) || !empty($_SESSION['bonusMinutes'])) && (empty($_SESSION['numChance']) || $_SESSION['numChance'] == Config::NUM_CHANCE) && !isset($get)) {
 			//установливаем новые значени бонуса, баланса и др. у игрока
-			Site::setDataGame();
+			$gameBalance = Site::setDataGame();
 			//если игрок был зарегин по реф ссылке, то процент от его выйгрыша идет рефереру
 			if (!empty($_SESSION['parentId'])) {
 				Refer::setRefBonus($gameBalance);

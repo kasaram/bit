@@ -40,7 +40,7 @@ class Video
 	 */
 	public static function addVideo($data, $params)
 	{
-		$db = Db::getDB();
+		$db = DB::getDB();
 		return $db->insert('video', $data, $params);
 	}
 

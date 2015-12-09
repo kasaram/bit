@@ -36,8 +36,7 @@
           </div>
         </div>
         <div>
-          <div></div>
-          <div>
+          <div style="float: right;">
             <a href="javascript://" class="button" onclick="$('#mailForm').submit();">SEND</a>
           </div>
         </div>

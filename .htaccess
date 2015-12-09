@@ -11,6 +11,7 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php
 
+
 # Убираем www в строке запроса
 # RewriteCond %{HTTP_HOST} ^www.bit.loc& [NC]
 # RewtiteRule ^(.*)$ http://bit.loc/$1 [R=301, L]

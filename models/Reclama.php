@@ -35,7 +35,7 @@ class Reclama
 	 */
 	public static function addReclama($data, $params)
 	{
-		$db = Db::getDB();
+		$db = DB::getDB();
 		return $db->insert('reclama', $data, $params);
 	}
 

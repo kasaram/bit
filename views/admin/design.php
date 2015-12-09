@@ -26,6 +26,10 @@ require_once ROOT.'/'.Config::VIEW.'layouts/admin.php';
         <div><input type="text" name="color_text" placeholder="<?=Config::COLOR_TEXT?>"></div>
       </div>
       <div>
+        <div>Цвет основного текста на сайте при наведении:</div>
+        <div><input type="text" name="color_text_hover" placeholder="<?=Config::COLOR_TEXT_HOVER?>"></div>
+      </div>
+      <div>
         <div>Второстепенный цвет на сайте:</div>
         <div><input type="text" name="color_second" placeholder="<?=Config::COLOR_SECOND?>"></div>
       </div>
@@ -39,11 +43,11 @@ require_once ROOT.'/'.Config::VIEW.'layouts/admin.php';
       </div>
       <div>
         <div>Цвет фона кнопок при наведении:</div>
-        <div><input type="text" name="color_button_text" placeholder="<?=Config::COLOR_BUTTON_HOVER_BG?>"></div>
+        <div><input type="text" name="color_button_hover_bg" placeholder="<?=Config::COLOR_BUTTON_HOVER_BG?>"></div>
       </div>
       <div>
         <div>Скругление углов элементов:</div>
-        <div><input type="text" name="color_button_text" placeholder="<?=Config::BORDER_RADIUS?>"></div>
+        <div><input type="text" name="border_radius" placeholder="<?=Config::BORDER_RADIUS?>"></div>
       </div>
       <div>
         <div></div>

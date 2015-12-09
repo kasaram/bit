@@ -6,7 +6,7 @@ class Site
 
   /**
    * Статический метод для пересчета и установки новых значений данных игрока
-   * @return void
+   * @return int Вернет число временного выйгрыша
    */
   public static function setDataGame()
   {
@@ -28,6 +28,7 @@ class Site
       $_SESSION['claimAmountBefore'] = 0;
       $_SESSION['bonusMinutesBefore'] = 0;
     }
+    return $gameBalance;
   }
 
   /**
