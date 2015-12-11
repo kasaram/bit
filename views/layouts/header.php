@@ -77,7 +77,7 @@
               <?php if (isset($_GET['ref']) && !empty($_GET['ref'])) { ?>
                 <input type="hidden" name="ref" value="<?=$_GET['ref']?>">
               <?php } ?>
-              <input id="wallet" type="text" name="bitcoin">
+              <input id="wallet" type="text" name="bitcoin" placeholder="Enter your Bitcoin address">
             </div>
             <div>
               <a href="javascript://" onclick="$('#enterForm').submit()" class="button">ENTER</a>

@@ -31,7 +31,7 @@
 		const NUM_BANNERS = "9";
 		const NUM_RECLAME = "5";
 		const FOOTER_TEXT = "ICBC Fond &copy; 2015";
-		const PAUSE_GAME = "1";
+		const PAUSE_GAME = "3";
 		const PAUSE_BONUS = "1";
 		const NUM_CHANCE = "10";
 		const NUM_WINS = "8";

@@ -2,7 +2,7 @@
 $m = memory_get_usage();
 $t = microtime(true);
 ini_set('display_errors', 1);
-error_reporting(E_ALL);
+error_reporting(0);
 /****************************************************************************/
 
 mb_internal_encoding('UTF-8');
