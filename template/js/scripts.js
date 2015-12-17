@@ -18,15 +18,26 @@ $('#claimcaptchaform').show();
 function scrolldown() {$('html, body').stop().animate({scrollTop:($('#footer').offset().top)}, 1000);}
 
 // FOR IFRAME
-$(window).load(function () {
-  $('#mframe').contents().find("body").on('click', function(e) {
+// $(window).load(function () {
+//   $('#mframe').contents().find("body").on('click', function(e) {
+//   e = e || event;
+//   if(e.target.nodeName!='BODY' && e.target.nodeName!='SPAN' && e.target.nodeName!='DIV') {
+//     tessw.start();
+//     $.get('/bonus/start/?clickStart',function(a){ $('#bonusacts>div:eq(0)').html(a); });
+//   }
+//   });
+// });
+
+$(document).on('click','#mframe', function(e) {
   e = e || event;
-  if(e.target.nodeName!='BODY' && e.target.nodeName!='SPAN' && e.target.nodeName!='DIV') {
+  if(e.target.nodeName!='BODY' && e.target.nodeName!='SPAN') {
     tessw.start();
-    $.get('/bonus/start/?clickStart',function(a){ $('#bonusacts>div:eq(0)').html(a); });
+    $.get('/bonus/start/?clickStart',function(a){ location.reload();});
+
   }
-  });
 });
+$(window).load(function () {$('#mframe a').attr('target','_blank');});
+
 
 //проверка на Addblock
   function checkAdb() {

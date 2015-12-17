@@ -27,6 +27,10 @@ class BonusController
 		$amountBonus = isset($_SESSION['amountBonus']) ? $_SESSION['amountBonus'] : 0;
 		//формируем массивы баннеров
 		$listBanners = Banners::getBannersOnSite('rand');
+		//получаем рекламу
+		$reclameList = Reclama::getReclamaOnSite('rand');
+		//формируем текст сообщения для окна баннеров
+		$text = time() < $_SESSION['pauseBonus'] ? "Please wait..." : 'Click on a banner and benefit from '.Config::AMOUNT_BONUS_1.' to '.Config::AMOUNT_BONUS_2.' '.Config::COIN;
 		//формируем первое видео и список последующих видео
 		$videoList = Video::getVideoOnSite('rand');
 		if(!empty($videoList)) {

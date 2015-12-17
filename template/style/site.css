@@ -108,7 +108,7 @@ input[type="text"]:focus, input[type="email"]:focus, textarea:focus { border: 1p
 
 textarea { resize: vertical; min-height: 80px; max-height: 200px; }
 
-#mframe { border: 1px solid #777; width: 600px; height: 440px; }
+#mframe { border: 1px solid #777; width: 600px; height: 440px; float:left; text-align: center;}
 
 #bonusgamerightside { width: 600px; float: right; }
 
