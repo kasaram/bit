@@ -12,8 +12,9 @@
 <div class="content">
 	<div id="bonusgame">
 		<!-- <iframe id="mframe" src="<?=Config::ADDRESS?>helpers/foriframe.php"></iframe> -->
+		<span class="iframetitle"><?=Config::BONUS_TEXT;?></span>
 		<div id="mframe">
-			<span id="iframetitle"><?=$text?></span>
+			<span class="iframetitle"><?=$text?></span>
 			<?php //если время до следующей игры истекло выводим баннеры
 			if(time() > $_SESSION['pauseBonus'] && !empty($reclameList)) {
 					//выводим то количество баннеров, которое задано в админке
@@ -45,7 +46,7 @@
 	          width: '600',
 	          videoId: '<?=$video?>',
 	          playerVars: {
-	          	'iv_load_policy': 3,
+	          	//'iv_load_policy': 3,
 	          	'controls': 2,
 	          	'autoplay': 1,
 	          	'loop': 1,

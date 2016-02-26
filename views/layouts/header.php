@@ -50,6 +50,10 @@
 <div id="overall">
   <div id="header">
     <div id="translate"></div>
+    <div class="ad46860">
+      <div><?=$listBanners['468x60'][0]?></div>
+      <div><?=$listBanners['468x60'][1]?></div>
+    </div>
     <div class="menu">
       <a href="<?=Config::ADDRESS?>" class="logo"></a>
       <div class="menulinks">

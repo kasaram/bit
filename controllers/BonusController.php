@@ -30,7 +30,8 @@ class BonusController
 		//получаем рекламу
 		$reclameList = Reclama::getReclamaOnSite('rand');
 		//формируем текст сообщения для окна баннеров
-		$text = time() < $_SESSION['pauseBonus'] ? "Please wait..." : 'Click on a banner and benefit from '.Config::AMOUNT_BONUS_1.' to '.Config::AMOUNT_BONUS_2.' '.Config::COIN;
+		//$text = time() < $_SESSION['pauseBonus'] ? "Please wait..." : 'Click on a banner and benefit from '.Config::AMOUNT_BONUS_1.' to '.Config::AMOUNT_BONUS_2.' '.Config::COIN;
+		$text = time() < $_SESSION['pauseBonus'] ? "Please wait..." : '';
 		//формируем первое видео и список последующих видео
 		$videoList = Video::getVideoOnSite('rand');
 		if(!empty($videoList)) {
@@ -39,7 +40,7 @@ class BonusController
 			$playList = implode(',', $videoList);
 		}
 		//устанавливаем время до следующей игры
-		$timeNextGame = time() < $_SESSION['pauseBonus'] ?  $_SESSION['pauseBonus'] - time() : Config::PAUSE_BONUS * 60;
+		$timeNextGame = time() < $_SESSION['pauseBonus'] ?  $_SESSION['pauseBonus'] - time() : Config::PAUSE_BONUS;
 		//если установлено время до следующей игры, то запускаем таймер
 		$start = time() < $_SESSION['pauseBonus'] ? '.start()' : '';
 		

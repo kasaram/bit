@@ -67,7 +67,7 @@ class Router
 					break;
 				}
 			} else if(count($this->routes) == $i){
-				//если нет совпадений или введен не существующий адрес, то вызовет MainController
+				//если нет совпадений или введен не существующий адрес, то вызовет SiteController
 				$controllerObject = new SiteController();
 				$result = $controllerObject->actionIndex();
 			}

@@ -1,6 +1,9 @@
 <?php
 	defined('BIT') or die;
 ?>
-	<div class="gameadtop"><?=htmlspecialchars_decode(Config::BANNER_TOP)?></div>
-	<div class="gameadleft"><?=htmlspecialchars_decode(Config::BANNER_LEFT)?></div>
-	<div class="gameadright"><?=htmlspecialchars_decode(Config::BANNER_RIGHT)?></div>
+	<div class="ad46860">
+    <div><?=$listBanners['468x60'][2]?></div>
+    <div><?=$listBanners['468x60'][3]?></div>
+  </div>
+	<div class="gameadleft"><?=$listBanners['160x600'][0]?></div>
+	<div class="gameadright"><?=$listBanners['160x600'][1]?></div>

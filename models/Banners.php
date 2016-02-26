@@ -11,7 +11,15 @@ class Banners
 	public static function getBannersOnSite($order)
 	{
 		$db = DB::getDB();
-		$listBanners = $db->select(['id','title','descr'], 'banners', ['publish'=>'='], $order, Config::NUM_BANNERS, 1);
+		// $listBanners = $db->select(['id','title','descr', 'size'], 'banners', ['publish'=>'='], $order, Config::NUM_BANNERS, 1);
+		$banners = $db->select(['id','title','descr', 'size'], 'banners', ['publish'=>'='], $order, null, 1);
+		$listBanners = [];
+		foreach ($banners as $v) {
+			if($v['size'] == '728x90') $listBanners['728x90'][] = htmlspecialchars_decode($v['descr']);
+			if($v['size'] == '468x60') $listBanners['468x60'][] = htmlspecialchars_decode($v['descr']);
+			if($v['size'] == '300x250') $listBanners['300x250'][] = htmlspecialchars_decode($v['descr']);
+			if($v['size'] == '160x600') $listBanners['160x600'][] = htmlspecialchars_decode($v['descr']);
+		}
 		return $listBanners;
 	}
 
@@ -23,7 +31,7 @@ class Banners
 	public static function getBannersOnAdmin($order)
 	{
 		$db = DB::getDB();
-		$listBanners = $db->select(['id','title', 'pubTime', 'publish'], 'banners', null, $order, null, 1);
+		$listBanners = $db->select(['id','title', 'descr', 'pubTime', 'publish'], 'banners', null, $order, null, 1);
 		return $listBanners;
 	}
 

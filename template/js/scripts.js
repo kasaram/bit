@@ -28,7 +28,7 @@ function scrolldown() {$('html, body').stop().animate({scrollTop:($('#footer').o
 //   });
 // });
 
-$(document).on('click','#mframe', function(e) {
+$(document).on('click','#mframe p', function(e) {
   e = e || event;
   if(e.target.nodeName!='BODY' && e.target.nodeName!='SPAN') {
     tessw.start();

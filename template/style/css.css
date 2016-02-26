@@ -20,9 +20,9 @@ table tr td { text-align: center; padding: 0 10px; }
 table tr:nth-child(odd) { background-color: #e0e0e0; }
 table tr:nth-child(1) { background-color: #777; text-align: center; color: #fff; }
 
-input[type="text"], textarea { background-color: #fff; height: 35px; border: 1px solid #aaa; color: #333; font-size: 14px; border-radius: 4px; float: left; width: 100%; clear: both; padding: 0 10px; }
+input[type="text"], textarea, select { background-color: #fff; height: 35px; border: 1px solid #aaa; color: #333; font-size: 14px; border-radius: 4px; float: left; width: 100%; clear: both; padding: 0 10px; }
 
-input[type="text"]:focus, textarea:focus { outline: none; }
+input[type="text"]:focus, textarea:focus, select:focus { outline: none; }
 
 textarea { padding: 7px 10px; line-height: 24px; min-height: 100px; max-height: 300px; resize: vertical; }
 

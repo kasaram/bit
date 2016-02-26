@@ -10,7 +10,7 @@ require_once ROOT.'/'.Config::VIEW.'layouts/admin.php';
       echo Message::getMsg($_GET['res']);
     } 
   ?>
-  <form action="<?=Config::ADDRESS?>admin/banners/add" method="post">
+<!--   <form action="<?=Config::ADDRESS?>admin/banners/add" method="post">
     <div class="formname">Статичные баннеры</div>
     <div class="form">
       <div>
@@ -33,11 +33,22 @@ require_once ROOT.'/'.Config::VIEW.'layouts/admin.php';
         </div>
       </div>
     </div>
-  </form>
+  </form> -->
 
   <form action="<?=Config::ADDRESS?>admin/banners/create" method="post">
     <div class="formname">Добавить баннер</div>
     <div class="form">
+      <div>
+        <div>Размер:</div>
+        <div>
+          <select name="size">
+            <option value="728x90">728x90</option>
+            <option value="468x60">468x60</option>
+            <option value="300x250">300x250</option>
+            <option value="160x600">160x600</option>
+          </select>
+        </div>
+      </div>
       <div>
         <div>Заголовок:</div>
         <div><input name="title" type="text" placeholder="Укажите заголовок баннера" required></div>
@@ -56,6 +67,7 @@ require_once ROOT.'/'.Config::VIEW.'layouts/admin.php';
   <table border=1>
     <tr>
       <td>Заголовок</td>
+      <td>Содержимое</td>
       <td>Создано</td>
       <td>Активно</td>
       <td>Удаление</td>
@@ -66,6 +78,7 @@ require_once ROOT.'/'.Config::VIEW.'layouts/admin.php';
     ?>
       <tr>
         <td><?=$item['title']?></td>
+        <td><?=htmlspecialchars_decode($item['descr'])?></td>
         <td><?=Format::adminDate($item['pubTime'])?></td>
         <td>
           <form action="<?=Config::ADDRESS?>admin/banners/update/<?=$item['id'];?>" method="post">

@@ -34,7 +34,7 @@ class Bonus
 	 */
 	public static function setPauseBonus()
 	{
-		$timeNextGame = time() + Config::PAUSE_BONUS * 60;
+		$timeNextGame = time() + Config::PAUSE_BONUS;
 		$_SESSION['pauseBonus'] = $timeNextGame;
 		return User::changeUser(['pauseBonus'=>$timeNextGame], $_SESSION['id']);
 	}

@@ -11,10 +11,10 @@ require_once ROOT.'/'.Config::VIEW.'layouts/admin.php';
     } 
   ?>
   <form action="game" method="post">
-    <div class="formname">Настройки игры</div>
+    <div class="formname">Настройки основной игры</div>
     <div class="form">
       <div>
-        <div>Время ожидания следующей игры:</div>
+        <div>Время ожидания следующей игры (мин):</div>
         <div><input type="text" name="pause_game" placeholder="<?=Config::PAUSE_GAME?>"></div>
       </div>
       <div>
@@ -49,12 +49,17 @@ require_once ROOT.'/'.Config::VIEW.'layouts/admin.php';
         <div>Максимальный выйгрыш бонуса за один шанс:</div>
         <div><input type="text" name="max_bonus" placeholder="<?=Config::MAX_BONUS?>"></div>
       </div>
+      <div class="formname">Настройки бонусной игры</div>
       <div>
-        <div>Выйгрыша при клике по рекламе в бонусной игре(один):</div>
+        <div>Время ожидания бонусной игры (сек):</div>
+        <div><input type="text" name="pause_bonus" placeholder="<?=Config::PAUSE_BONUS?>"></div>
+      </div>
+      <div>
+        <div>Выйгрыш при клике по рекламе в бонусной игре(один):</div>
         <div><input type="text" name="amount_bonus_1" placeholder="<?=Config::AMOUNT_BONUS_1?>"></div>
       </div>
       <div>
-        <div>Выйгрыша при клике по рекламе в бонусной игре(два):</div>
+        <div>Выйгрыш при клике по рекламе в бонусной игре(два):</div>
         <div><input type="text" name="amount_bonus_2" placeholder="<?=Config::AMOUNT_BONUS_2?>"></div>
       </div>
       <div>

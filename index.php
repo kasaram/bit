@@ -18,7 +18,6 @@ require_once 'config/Config.php';
 require_once 'components/Autoload.php';
 spl_autoload_register(['Autoload', 'loadClass']);
 
-
 $r = new Router();
 $r->run();
 

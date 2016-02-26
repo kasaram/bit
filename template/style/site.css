@@ -9,7 +9,7 @@ body { background-color: #ffffff; margin: 0; overflow-y: scroll; overflow-x: hid
 
 #overall { margin: 0 auto; width: 1230px; }
 
-#translate { height: 26px; }
+#translate { height: 26px; margin-bottom: 20px;}
 
 .menu { height: 60px; background-color: #ffc600; border-radius: 5px; }
 
@@ -43,8 +43,12 @@ a.logo { float: left; height: 60px; width: 240px; background: url("../images/log
 
 .logout:hover #power { fill: #777777; }
 
-#advertisments div { float: left; margin-left: 30px; margin-bottom: 30px; width: 390px; min-height: 20px; text-align: center; }
+#advertisments div { float: left; margin-left: 30px; margin-bottom: 30px; width: 390px; min-height: 250px; text-align: center; text-align: center; overflow-x: hidden;  }
 #advertisments div:nth-child(3n+1), #advertisments div:first-child { margin-left: 0; clear:left;}
+
+.ad46860:after { content: ""; display: table; clear: both; }
+.ad46860>div {width:468px; min-height:60px; margin-bottom:30px; float:right; }
+.ad46860>div:first-child {float:left !important;}
 
 #advertisments:after { content: ""; display: table; clear: both; }
 
@@ -52,11 +56,11 @@ a.logo { float: left; height: 60px; width: 240px; background: url("../images/log
 
 .content:after { content: ""; display: table; clear: both; }
 
-a#takecoins { display: block; width: 200px; height: 50px; margin: 0 auto 70px; background-color: #74bb0f; line-height: 50px; text-align: center; color: #ffffff; text-decoration: none; font-size: 20px; border-radius: 5px; }
+a#takecoins { display: block; width: 200px; height: 50px; margin: -30px auto 0px; background-color: #74bb0f; line-height: 50px; text-align: center; color: #ffffff; text-decoration: none; font-size: 20px; border-radius: 5px; }
 
 a#takecoins:hover { text-decoration: none; background-color: #74cc0f; }
 
-#takecoinsinactive { display: block; width: 200px; height: 50px; margin: 0 auto 70px; background-color: #aaa; line-height: 50px; text-align: center; color: #fff; text-decoration: none; font-size: 20px; border-radius: 5px; }
+#takecoinsinactive { display: block; width: 200px; height: 50px; margin: -30px auto 0px; background-color: #aaa; line-height: 50px; text-align: center; color: #fff; text-decoration: none; font-size: 20px; border-radius: 5px; }
 
 .inactivesm { background-color: #aaa !important; color: #fff !important; margin-right: 0 !important; }
 
@@ -65,11 +69,11 @@ a#takecoins:hover { text-decoration: none; background-color: #74cc0f; }
 
 .gameads, .gameadleft, .gameadright { width: 180px; min-height: 60px;  text-align: center; }
 
-.gameadleft { float: left; }
+.gameadleft { float: left; min-height: 600px; }
 
-.gameadright { float: right; }
+.gameadright { float: right; min-height: 600px; }
 
-.gameadtop { width: 100%; text-align: center; margin-bottom: 20px; }
+.gameadtop { width: 100%; min-height: 90px; text-align: center; margin-bottom: 30px; }
 
 #field { margin-left: 180px; margin-bottom: 30px; width: 840px; }
 
@@ -141,7 +145,7 @@ textarea { resize: vertical; min-height: 80px; max-height: 200px; }
 
 .button:hover { background-color: #74cc0f; }
 
-#iframetitle { display: block; text-align: center; font-weight: bold; margin-bottom: 20px; }
+.iframetitle { display: block; text-align: center; font-weight: bold; margin-bottom: 20px; }
 
 
 /*Сообщения об успехе или неудаче проведения операции*/

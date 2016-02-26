@@ -21,10 +21,11 @@ class AdminBannersController extends AdminBase
 	{
 		self::checkAdmin();
 		if(isset($_POST['submit'])) {
+			$size = Validate::cleanStr($_POST['size']);
 			$title = Validate::cleanStr($_POST['title']);
 			$descr = htmlspecialchars($_POST['descr']);
 			if(!empty($title) && !empty($descr)) {
-				$result = Banners::addBanner(['title', 'descr', 'pubTime'], [$title, $descr, time()]);
+				$result = Banners::addBanner(['title', 'descr', 'size', 'pubTime'], [$title, $descr, $size, time()]);
 			}
 			$res = isset($result) ? 'suc_banner_create' : 'fail_banner_create';
 		} else $res = 'fail_banner_create';
@@ -62,7 +63,7 @@ class AdminBannersController extends AdminBase
 	 * Добавляет статические баннеры слева, сверху и справа и возвращает на страницу баннеров с
 	 * сообщением о результате
 	 */
-	public function actionAdd()
+/*	public function actionAdd()
 	{
 		self::checkAdmin();
 		if (isset($_POST['save']) || isset($_POST['default'])) {
@@ -74,5 +75,5 @@ class AdminBannersController extends AdminBase
 		}
 		require_once ROOT.'/'.Config::VIEW.'admin/banners.php';
 		return true;
-	}
+	}*/
 }

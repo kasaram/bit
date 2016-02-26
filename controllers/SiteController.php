@@ -72,17 +72,17 @@ class SiteController
 	}
 
 	/**
-	 *	Позволяет залогинеться или зарегистрироваться и сразу войти в личный кабине, при этом 
+	 *	Позволяет залогинеться или зарегистрироваться и сразу войти в личный кабинет, при этом 
 	 * создастся игра
 	*/
 	public function actionLogin()
 	{
-		$res = '';
+		//$res = '';
 		if(isset($_POST['bitcoin']) && !empty(trim($_POST['bitcoin']))) {
 			$bitcoin = Validate::cleanStr($_POST['bitcoin']);
-			if(!Validate::checkBitcoin($bitcoin)) {
+			/*if(!Validate::checkBitcoin($bitcoin)) {
 				$res = '?res=fail_bit';
-			} else {
+			} else {*/
 				if(session_status() !== PHP_SESSION_ACTIVE) session_start();
 				//Проверяем наличие реферальной ссылки
 				$ref = isset($_POST['ref']) ? Validate::cleanStr($_POST['ref']) : 0;
@@ -95,9 +95,9 @@ class SiteController
 					$userData = array_merge($userDbData, $dataGame);
 				} else $userData = $userDbData;
 		    User::sessionUser($userData);
-			}
+			//}
 		}
-	  header('Location: '.Config::ADDRESS.$res);
+	  header('Location: '.Config::ADDRESS); //.$res
 	}
 
 	/**

@@ -1,7 +1,7 @@
 <?php
 	class Config
 	{
-		const SITE_NAME = "Faucet BTC";
+		const SITE_NAME = "Coin BTC";
 		const ADDRESS = "http://bit.loc/";
 		const ADM_EMAIL = "echmaster@mail.ru";
 		const SECRET = "master";
@@ -26,13 +26,13 @@
 		const BORDER_RADIUS = "5";
 		const LOGO = "images/logo.png";
 		const COIN = "Satoshi";
-		const SUM_AMOUNT = "5000000";
+		const SUM_AMOUNT = "50000";
 		const REF_COMMISSION = "20";
-		const NUM_BANNERS = "9";
-		const NUM_RECLAME = "5";
+		const NUM_BANNERS = "12";
+		const NUM_RECLAME = "4";
 		const FOOTER_TEXT = "ICBC Fond &copy; 2015";
-		const PAUSE_GAME = "3";
-		const PAUSE_BONUS = "1";
+		const PAUSE_GAME = "5";
+		const PAUSE_BONUS = "60";
 		const NUM_CHANCE = "10";
 		const NUM_WINS = "8";
 		const NUM_BONUSES = "2";
@@ -47,6 +47,7 @@
 		const DAILY_BONUS = "1";
 		const MAX_DAILY_BONUS = "100";
 		const VIDEO_TEXT = "BITCOINFREE";
+		const BONUS_TEXT = "Click on a banner and benefit from 1000 to 1500 Satoshi";
 		const BANNER_TOP = "Код для баннера сверху";
 		const BANNER_LEFT = "Код для баннера слева";
 		const BANNER_RIGHT = "Код для баннера справа";
